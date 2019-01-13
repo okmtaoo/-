@@ -1,0 +1,59 @@
+%\ProvidesPackage{semi}[2018/7/3 v1.0]
+
+\usepackage{newtxtext} % アルファベットなどを TimesNewRoman で
+\usepackage{okumacro} % 日本語を扱う上で便利な機能の集まり
+\usepackage{graphicx}
+\usepackage{tabularx} % 表を作る際に使う
+\usepackage{makeidx} % 索引を作る際に使う
+\usepackage{fouriernc} % 数式のフォントに格好良いのを使う
+\usepackage[deluxe]{otf} % 明朝体の太字を使う
+\usepackage{mediabb} % PDF ファイルの内部情報自動的に取得する
+\usepackage{amsmath} % アメリカ数学会による数学パッケージ
+\usepackage{moreverb} % プログラムなどを取り込む際に使う
+%\usepackage{verbatim} % なんだっけ？
+\usepackage[margin=2cm]{geometry} % 余白の設定する上下左右の余白を一律で 2cm にする
+%\usepackage[left=2cm, right=3cm, top=25mm, bottom=25mm]{geometry} % 上 下 左 右の余白をそれぞれ調整したい場合の書き方
+\usepackage{dcolumn} % 表内の数字を小数点やカンマで揃える
+\usepackage{ascmac} % 囲み線（boxnote など）を使う
+\usepackage{color} % 文字などに色を付ける際に使う
+%\usepackage{eclbkbox} % 2 ページ以上にまたがる囲み線
+%\usepackage{itembkbx} % ちょと賢い囲み線（itembox や boxnote）を使う
+\usepackage{enumerate} % 箇条書きを装飾する際に使う
+\usepackage{multicol} % 3 段組以上の多段組を扱う．図を 3 つ以上横に並べる場合にも使用する
+\usepackage{syntonly}
+%\syntaxonly
+\usepackage{multirow}
+%\usepackage[rm,up,sc,compact,topmarks,calcwidth,pagestyles]{titlesec}
+\usepackage[rm,up,bf,compact,topmarks,calcwidth,pagestyles]{titlesec}
+% rm: ローマン体（他の選択肢： mc:明朝体，gt:ゴシック体，sf:サンセリフ体，tt:タイプライタ体）
+% bf: ボールド体（他の選択肢： mdミディアム）
+% up: 通常体（他の選択肢： it:イタリック，sc:スモールキャップ，sl：斜体）
+% compact: 
+% topmarks: 
+% calcwidth: 
+% pagestyles: 
+\titlelabel{\thetitle\enspace}
+\usepackage{url}
+\usepackage{here}
+\usepackage{comment}
+\usepackage{diagbox}
+
+
+
+\def\日付#1{\def\date{#1}}
+\def\氏名#1{\def\name{#1}}
+\def\タイトル#1{\def\title{#1}}
+
+\setlength{\unitlength}{1mm}
+
+\newcommand{\semi}{
+\begin{flushright}
+\date\\
+\name
+\end{flushright}
+
+\begin{center}%センタリング
+\Large{\bf{\title}}
+\end{center}
+
+}

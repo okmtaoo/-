@@ -1,0 +1,280 @@
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[a4j,12pt]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{newtxtext} % アルファベットなどをTimesNewRomanで
+%\usepackage{newpxtext} % アルファベットなどをPalatinoで
+% 両方共コメントアウトするとComputer Modernで
+\usepackage{listings}
+\usepackage{okumacro}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{tabularx}
+\usepackage{colortbl}
+%\usepackage{float}
+\usepackage{makeidx}
+\usepackage{fouriernc}
+\usepackage[deluxe]{otf}
+\usepackage{mediabb}
+\usepackage{amsmath}
+\usepackage{moreverb}
+%\usepackage{verbatim}
+
+\usepackage{verbatim}
+\usepackage{multirow}
+
+% \usepackage[margin=2cm]{geometry}
+\usepackage[top=20truemm,bottom=20truemm,left=30truemm,right=20truemm]{geometry}
+
+
+\usepackage{dcolumn}
+\usepackage{ascmac}
+\usepackage{color}
+\usepackage{eclbkbox}
+\usepackage{itembkbx}
+\usepackage{enumerate} %箇条書きを装飾する際に使う
+\usepackage{multicol}
+% 自分で追加
+\usepackage{comment}%複数行コメントアウト
+\usepackage{multirow}%表結合
+\usepackage{here} %図や表などを強制的に出力
+\usepackage{fancybox} %四角で囲む
+\usepackage{boxedminipage} %箇条書きを四角で囲む
+\usepackage{caption} %キャプションの設定
+\usepackage{longtable} %表がページをまたがるときの処理
+\usepackage{slashbox} %表に斜線を入れる
+% \usepackage{emathT} %表に斜線を入れる
+\usepackage{framed} %箇条書きを枠で囲む
+\newcolumntype{I}{!{\vrule width 1.5pt}}% 縦線の一部を太くする(Iで指定する)
+% 横線の一部を太くする(wlineで範囲を指定する）
+\newlength\savedwidth
+\newcommand{\wcline}[1]{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 1.5pt} \cline{#1}
+\noalign{\global\arrayrulewidth\savedwidth}}
+\usepackage{lscape} % 表を横向きに表示
+
+% 数字を丸で囲む
+\def\MARU#1{\leavevmode \setbox0\hbox{$\bigcirc$}%
+\copy0\kern-\wd0 \hbox to\wd0{\hfil{#1}\hfil}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\makeatletter % プリアンブルで定義開始
+\renewcommand{\presectionname}{第}
+\renewcommand{\postsectionname}{章}
+\renewcommand{\appendixname}{付録}
+
+
+%章，節，項の文字サイズ
+\def\section{\@startsection {section}{1}{\z@}{3.5ex plus -1ex minus -.2ex}{2.3 ex plus .2ex}{\Large\bf}}
+\def\subsection{\@startsection {subsection}{1}{\z@}{3.5ex plus -1ex minus -.2ex}{2.3 ex plus .2ex}{\Large\bf}}
+\def\subsubsection{\@startsection {subsubsection}{1}{\z@}{3.5ex plus -1ex minus -.2ex}{2.3 ex plus .2ex}{\large\bf}}
+
+
+\usepackage{caption} %キャプション文字サイズ（大）
+\captionsetup[figure]{font=normalsize}
+\captionsetup[table]{font=normalsize}
+\captionsetup[equation]{font=normalsize}
+
+% 図の番号を"<章.節の番号> - <図の番号>" へ
+\renewcommand{\thefigure}{\thesubsection-\arabic{figure}}
+%\renewcommand{\thefigure}{\thesection-\arabic{figure}}
+% 表の番号を"<章.節の番号> - <表の番号>" へ
+\renewcommand{\thetable}{\thesubsection-\arabic{table}}
+% 数式の番号を"<章.節の番号> - <数式の番号>" へ
+\renewcommand{\theequation}{\thesubsection-\arabic{equation}}
+
+% 章と節が進むごとに図の番号をリセットする
+\@addtoreset{figure}{subsection}
+% 章と節が進むごとに表の番号をリセットする
+\@addtoreset{table}{subsection}
+% 章と節が進むごとに数式の番号をリセットする
+\@addtoreset{equation}{subsection}
+
+% 章と節が進むごとに注釈の番号をリセットする
+% \@addtoreset{footnote}{subsection}
+
+% 注釈の設定
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+
+\makeatother % プリアンブルで定義終了
+
+
+%%%%%%% グラフックパス
+\graphicspath{{fig/}}
+ 
+\makeindex
+\begin{document}
+
+% フォントサイズ・行間
+\fontsize{20pt}{15pt}\selectfont
+
+% 表紙
+\thispagestyle{empty} % ページ番号削除
+
+\begin{center}
+\huge
+\vspace*{\stretch{2}}
+平成29年度　卒業論文\\[50pt]
+\HUGE
+GPU利用による\\
+シミュレータ教材の\\
+演算速度\\
+\huge
+\vspace*{\stretch{6}}
+指導教員　須田 宇宙 准教授\\[40pt]
+千葉工業大学 情報ネットワーク学科\\[10pt]
+須田研究室\\[60pt]
+1432103 \hspace{50pt} 氏名　中嶋　大貴\\[75pt]
+\end{center}
+
+\begin{flushright} 
+\huge
+提出日　2018年1月29日
+\vspace{\stretch{2}}
+\end{flushright}
+
+\newpage
+\thispagestyle{empty} % ページ番号削除
+%\input{input0}
+
+% フォントサイズ・行間
+\fontsize{10pt}{15pt}\selectfont
+
+% 目次
+\pagenumbering{roman}
+\setcounter{page}{1} % ページ番号1
+\setcounter{tocdepth}{3}
+
+\newpage
+\tableofcontents
+%\pagestyle{empty}
+
+%\thispagestyle{empty} 
+
+\newpage
+%\thispagestyle{empty}
+\listoffigures
+
+\newpage
+%\thispagestyle{empty}
+\listoftables
+
+
+
+
+% 本文
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1} % ページ番号1
+% 緒言
+\input{input1}
+
+\newpage
+\input{input2}
+
+\newpage
+\input{input3}
+
+\newpage
+\input{input4}
+
+\newpage
+\input{input5}
+
+\newpage
+\input{input6}
+
+\newpage
+\input{input7}
+
+\newpage
+\input{input8}
+
+\newpage
+\input{input9}
+
+\newpage
+\input{input10}
+
+% 結言
+\newpage
+%\input{input11}
+
+% 謝辞
+\newpage
+\thispagestyle{empty} % ページ番号削除
+%\input{input12}
+
+%参考文献
+\newpage
+\thispagestyle{empty} % ページ番号削除
+%\input{bibliography.tex}
+
+%付録
+\appendix
+\section{作成したプログラム}
+
+\section*{CPU.html}
+\label{ CPU.html}
+\listinginput{1}{CPU.html}
+\newpage
+
+\section*{manysource.js}
+\label{manysource.js}
+\listinginput{1}{manysource.js}
+\newpage
+
+\section*{GPU.html}
+\label{GPU.html}
+\listinginput{1}{GPU.html}
+\newpage
+
+\section*{manysourcegpu.js}
+\label{manysource.js}
+\listinginput{1}{manysource.js}
+\newpage
+
+\section*{index.html}
+\label{index.html}
+\listinginput{1}{index.html}
+\newpage
+
+\section*{study.js}
+\label{study.js}
+\listinginput{1}{study.js}
+\newpage
+\listinginput{1}{study.js}
+\newpage
+
+% \renewcommand{\thetable}{\Alph{section}.\arabic{figure}}
+% \renewcommand{\thefigure}{\Alph{section}.\arabic{table}}
+
+% \def\thesection{付録\Alph{section}}
+
+%\newpage
+% 辞書の作成方法
+%\input{appendix1}
+
+%\newpage
+% Juliusのプログラム
+%\input{appendix2}
+
+\newpage
+% 確認試験の内容
+%\input{appendix3}
+
+\newpage
+% 質問紙の内容
+%\input{appendix4}
+
+\newpage
+% 学習シナリオ
+%\input{appendix5}
+
+%\newpage
+%\input{sakuin}
+
+\printindex
+
+\end{document}

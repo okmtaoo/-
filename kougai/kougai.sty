@@ -1,0 +1,118 @@
+\usepackage{newtxtext}
+\usepackage{okumacro}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{float}
+
+\usepackage{caption}
+\usepackage{comment}
+\usepackage[top=10truemm,bottom=15truemm,left=15truemm,right=15truemm]{geometry} % 余白を上1.0cm，左右下を1.5cmにする
+\usepackage{fouriernc} % 数式のフォントに格好良いのを使う
+\usepackage[deluxe]{otf} % 明朝体の太字を使う
+\usepackage{mediabb} % PDF ファイルの内部情報自動的に取得する
+\usepackage{amsmath} % アメリカ数学会による数学パッケージ
+\usepackage{color} % 文字などに色を付ける際に使う
+\usepackage{enumerate} % 箇条書きを装飾する際に使う
+\usepackage{url}
+\usepackage{here}
+%\usepackage[rm,up,bf,compact,topmarks,calcwidth,pagestyles]{titlesec}
+% rm: ローマン体（他の選択肢： mc:明朝体，gt:ゴシック体，sf:サンセリフ体，tt:タイプライタ体）
+% bf: ボールド体（他の選択肢： mdミディアム）
+% up: 通常体（他の選択肢： it:イタリック，sc:スモールキャップ，sl：斜体）
+% compact: 
+% topmarks: 
+% calcwidth: 
+% pagestyles: 
+%\titlelabel{\thetitle\enspace}
+
+\renewenvironment{enumerate}
+{
+\begin{list}{\arabic{enumi}. }
+{
+\usecounter{enumi}
+ \setlength{\itemindent}{0zw}	%ここは 0 に固定
+ \setlength{\leftmargin}{3zw}	%左のインデント
+ \setlength{\rightmargin}{0zw}	%右のインデント
+ \setlength{\labelsep}{5.0pt}	%黒丸と説明文の間
+ \setlength{\labelwidth}{3zw}	%ラベルの幅
+ \setlength{\itemsep}{0em}		%項目ごとの改行幅
+ \setlength{\parsep}{0em}		%段落での改行幅
+ \setlength{\listparindent}{1zw}	% 段落での一字下り
+ \setlength{\parskip}{-1em}		% 段落間
+}
+}{
+\end{list}
+}
+
+% 余白の調整については下記URLが詳しい
+% https://qiita.com/izumin5210/items/7c9035d8a77b9dbac1d1
+
+% sectionの下のマージンを小さくする
+\makeatletter
+  \renewcommand{\section}{
+    \@startsection{section}{1}{\z@}
+    {0.5\Cvs}{0.1\Cvs}
+    {\normalfont\large\headfont\raggedright}}
+\makeatother
+
+% タイトル部分の余白を詰める
+\makeatletter
+  \def\@maketitle{%
+    \newpage\null
+    \begin{center}%
+      \let\footnote\thanks
+      {\LARGE \@title \par}%
+      \vskip 1.0em
+      {\large
+        \lineskip .5em
+        \begin{tabular}[t]{c}%
+          \@author
+        \end{tabular}\par}%
+      \vskip 1em
+      {\large \@date}%
+    \end{center}%
+    \par\vskip 0.5em
+    \ifvoid\@abstractbox\else\centerline{\box\@abstractbox}\vskip1.5em\fi
+  }
+\makeatother
+
+% 参考文献を小さくする
+\makeatletter
+  \renewenvironment{thebibliography}[1]{%
+    \global\let\presectionname\relax
+    \global\let\postsectionname\relax
+    \section*{\refname}\@mkboth{\refname}{\refname}%
+    \list{\@biblabel{\@arabic\c@enumiv}}%
+          {\settowidth\labelwidth{\@biblabel{#1}}%
+          \leftmargin\labelwidth
+          \advance\leftmargin\labelsep
+          % 文字サイズ？
+          \setlength\baselineskip{11pt}
+          % アイテム間のマージン
+          \setlength\itemsep{0.4zh}
+          \@openbib@code
+          \usecounter{enumiv}%
+          \let\p@enumiv\@empty
+          \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+    \sloppy
+    \clubpenalty4000
+    \@clubpenalty\clubpenalty
+    \widowpenalty4000%
+    \sfcode`\.\@m}
+    {\def\@noitemerr
+      {\@latex@warning{Empty `thebibliography' environment}}%
+    \endlist}
+\makeatother
+
+\setlength{\columnsep}{2zw} 		% 
+\setlength\abovecaptionskip{-4pt}	% 図とキャプションの間のスペース
+\setlength\belowcaptionskip{-6pt}	% 
+\setlength\intextsep{2pt}	% 図の上下のスペース
+
+
+\thispagestyle{empty}
+%\renewcommand{\thesection}{\large{\arabic{section}.}}
+\renewcommand{\headfont}{\bfseries}
+
+\pagestyle{empty}
