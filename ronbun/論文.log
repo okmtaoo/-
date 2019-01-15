@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017) (preloaded format=platex 2018.4.10)  14 JAN 2019 06:57
+This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017) (preloaded format=platex 2018.4.10)  15 JAN 2019 23:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -906,15 +906,24 @@ LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
 (Font)              scaled to size 11.09619pt on input line 96.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 12.0pt on input line 96.
- [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16]
-[17] (./èŒ«^^96æ^^96^^87.aux) ) 
-Here is how much of TeX's memory you used:
- 8498 strings out of 493653
- 114179 string characters out of 6148874
- 199412 words of memory out of 5000000
- 11881 multiletter control sequences out of 15000+600000
- 36402 words of font info for 77 fonts, out of 8000000 for 9000
- 934 hyphenation exceptions out of 8191
- 43i,6n,70p,903b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
+ [4] [5] [6] [7]
+LaTeX Font Info:    Try loading font information for T1+ntxtt on input line 198
+.
 
-Output written on èŒ«^^96æ^^96^^87.dvi (19 pages, 53704 bytes).
+(/usr/local/texlive/2017/texmf-dist/tex/latex/newtx/t1ntxtt.fd
+File: t1ntxtt.fd 2012/04/20 v3.1
+)
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 10.0pt on input line 198.
+ [8] [9]
+[10] [11] [12] [13] [14] [15] [16] [17] [18] [19] (./èŒ«^^96æ^^96^^87.aux) ) 
+Here is how much of TeX's memory you used:
+ 8535 strings out of 493653
+ 114778 string characters out of 6148874
+ 199436 words of memory out of 5000000
+ 11914 multiletter control sequences out of 15000+600000
+ 36724 words of font info for 78 fonts, out of 8000000 for 9000
+ 934 hyphenation exceptions out of 8191
+ 43i,8n,70p,903b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on èŒ«^^96æ^^96^^87.dvi (21 pages, 60464 bytes).

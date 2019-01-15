@@ -178,7 +178,7 @@ p = -k ( \frac { \partial u _ x } { \partial x } + \frac { \partial u_y } { \par
 \rho \frac{ \partial v_x } { \partial t } = - \frac { \partial p }{ \partial x }
 \end{eqnarray}
 \begin {eqnarray}
-\label{eq :  y-2}
+\label{eq :y-2}
 \rho \frac{ \partial v_y } { \partial t } = - \frac { \partial p }{ \partial y }
 \end{eqnarray}
 \begin {eqnarray}
@@ -187,7 +187,34 @@ p = -k ( \frac { \partial u _ x } { \partial x } + \frac { \partial u_y } { \par
 \end{eqnarray}
 となる．
 
-音圧は時間と共に連続的に変化するが，
+音圧は時間と共に連続的に変化するが，コンピュータは連続の関数を扱うことができない．したがって，空間や時間を細かく区切ることで，連続な関数に見せる必要がある，このことを離散化と呼ぶ．
+また，空間に関する区切り幅を空間離散化幅，時間に関する区切り幅は時間離散化幅と呼ぶ．区切りごとの離散的な値を参照点と呼ぶ．
+
+FTDT法における音圧の離散化は，隣り合う参照点がそれぞれ$\Delta$x，$\Delta$yの空間離散幅を持ち，$\Delta$tの時間離散幅を持つ．参照点からｘ，ｙ方向に関して何番目の音圧参照点かをi，ｊを空間ステップと呼ぶ．何番目の時間参照点であるかnを用いて表すと，$(ｎ-0.5)\Delta t[s]$であり，このnを時間ステップと呼ぶ．
+
+xに関する偏微分係数を
+\begin {eqnarray}
+\label{eq :x-3}
+- \frac { \partial p }{ \partial x }|_{ x=x_0} = \lim_{\Delta x \to 0} \frac{p|_{x=x_0+ \frac {\Delta x}{2} -p}| _{x=x_0} - \frac{ \Delta x}{2} }{ \Delta x} \verb|~| \frac{p|_{x=x_0+ \frac {\Delta x}{2} -p}| _{x=x_0} - \frac{ \Delta x}{2} }{ \Delta x}
+\end{eqnarray}
+のように近似する．
+式 \ref{eq :x-3}を式 \ref{eq : x-2}に適用し，空間ステップを$i+0.5$,jの位置，空間ステップｎの時刻としたとき
+
+\begin {eqnarray}
+\label{eq:x-4}
+\rho \frac{ v_x^{n+0.5}( i+0.5, j ) -v_x^{ n-0.5 }( i+0.5,j ) }{ \Delta t } = - \frac{ p^n( i+1 ,j ) -p^n( i,j ) }{ \Delta x }
+\end{eqnarray}
+
+と近似できる．空間微分にも時間微分にも式\ref{eq :x-3}と同様の近似を用いることが可能となり，これがFTDT法の特徴の一つである．式\ref{eq :y-2}も同様に近似値を求めることができる．
+
+\begin {eqnarray}
+\label{eq:y-4}
+\rho \frac{ v_y^{n+0.5}( i+0.5, j ) -v_y^{ n-0.5 }( i+0.5,j ) }{ \Delta t } = - \frac{ p^n( i+1 ,j ) -p^n( i,j ) }{ \Delta y }
+\end{eqnarray}
+
+
+時間ステップn-0.5を過去，nを現在，n+0.5を未来の状態と考えれば，過去の$v_x$の値と現在の値から未来の$v_x$の値を求めることができる．
+最も時間ステップが大きい項のみ左辺に変形し，初期の粒子速度分布と音圧分布の１組がわかれば，全空間ステップにおいて変形した式を交互に計算することで求めることが可能である．初期時刻の場の業態を表す条件のことを初期条件と呼ぶ．時間が進むごとに次々と変化することを時間発展と呼び，初期状態から時間的な順序を追って場の上程を求めることを逐次計算と呼ぶ．
 
 \subsection{シミュレータ教材のメリット}
 シミュレータを使用することに得られるメリットを以下に示す．
@@ -213,10 +240,11 @@ p = -k ( \frac { \partial u _ x } { \partial x } + \frac { \partial u_y } { \par
 %プロセッサ
 \section{プロセッサ}
 本章ではプロセッサ，CPUやGPUの歴史や相違点といった内容を解説する．
+%CPU
 \subsection{CPU}
 \subsubsection{CPUの概要}
 \subsubsection{CPUの歴史}
-
+%GPU
 \subsection{GPU}
 GPUはGraphics Processing Unitの略称である．元々GPUは画像処理，大量の計算を行うことを目的として開発されたハードウェアである．しかし，近年はその処理能力の高さからディープラーニング等画像処理以外の分野での活躍も多く見られるようになった．
 本章では．GPUの概要から歴史，処理の仕方，役割について述べる．
@@ -232,6 +260,14 @@ GPUの歴史はコンピュータの画像処理の歴史と密接に関わっ�
 
 1970年代になると，固定の背景の前で小さなパターンを動かすピンポンを模した「Pong」が登場した．当初はアーケードゲームだったが，LSI(Large-Scale Intergration)の集積度の向上により家庭向けのゲーム機が発売されるようになった．LSIの集積度や性能が改善されるにつれ，背景が複雑かつ，奇麗になり，高速で動くパターンの数が増加した．
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+汎用のコンピュータやが画像専用のプロセッサの能力が向上するにつれて，より高度な画像の
+
+=======
+>>>>>>> ffd5dfadb73d8f96d402d0282cc83a474fda9501
+=======
+>>>>>>> ffd5dfadb73d8f96d402d0282cc83a474fda9501
 
 \subsubsection{GPUの処理方法}
 \subsubsection{GPUの活躍}
