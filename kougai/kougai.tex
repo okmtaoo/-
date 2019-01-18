@@ -81,7 +81,7 @@ OffscreenCanvasはWebWorkerを利用してWorker上で描画処理を可能に�
 
 
 \section{検証結果}
-昨年制作されたシミュレータ教材ではCPUとGPUの処理速度の比較を行った．ここではCPUで動作させた方をCPU，GPUで動作させた方をGPUと呼ぶ．CPUの処理速度を基準とし，各処理速度を式\ref{eq:eq1}に当てはめて求めた．
+昨年制作されたシミュレータ教材ではCPUとGPUの処理速度の比較を行った．ここでは昨年に制作され，CPUで動作させた方をCPU，GPUで動作させた方をGPUと呼ぶ．CPUの処理速度を基準とし，各処理速度を式\ref{eq:eq1}に当てはめて求めた．
 
 キャンバスを分割したWebWorkerとOffscreenCanvasは処理速度が遅い方を参照する．その結果を表\ref{tab:tab2}に記した．
 \begin{equation}
@@ -96,22 +96,18 @@ OffscreenCanvasはWebWorkerを利用してWorker上で描画処理を可能に�
 	\begin{tabular} {| c | l D{.}{.}{8} |} \hline
 	GPU & 1: & 0.810988 \\ \hline
 	OffscreenCanvas & 1: & 0.80789763 \\ \hline
-	WebWorker & 1: & 62.52562982 \\ \hline
+	WebWorker & 1: & 0.795556697 \\ \hline
 	\end{tabular} 
 	\label{tab:tab2}
 \end{table}
 
 OffscreenCnavasの変更箇所は分割したキャンバスの範囲指定と，キャンバスの生成元であるHTMLのキャンバスを増やすだけで，ソースコードの変更点はほとんどなかった．
 
-表\ref{tab:tab2}よりFTDT法においてOffscreenCanvasは有用なことが示された．
-
-シミュレータとして成立させるため，リアルタイムで数値を変更する場合は，
+Workerのみと違いworkerを宣言するメインではデータのデータの引き渡しがないだけでなく，左右のキャンバスを整合性をとる必要がないことからOffscreenCanvasはWorkerより実装が容易である．
 
 \section{終わりに}
 本研究ではOffscreenCanvasのFTDT法を用いたシミュレータへの有用性を検証した．
-実装するだけであれば容易だが，シミュレータとして成立させるため，リアルタイムで数値を変更する場合は，データの送信を複数行うなど工夫が必要になってくる．
-したがって，今後は追加箇所の知識の共有が必要になるだろう．
-
+OffscreenCanvasはまだ出たばかりの技術のため，最適化されていない可能性があり，今後のさらなる改良と，知識の共有が必要である．
 \begin{thebibliography}{99}
 
 	\bibitem{book}土井　淳:``ソフトウェアの生産性に着目したGPUプログラミングの方法論に関する研究動向'',電子情報通信学会誌,Vol.101,pp1219-1223(2018)

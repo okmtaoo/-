@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017) (preloaded format=platex 2018.4.10)  16 JAN 2019 22:58
+This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017) (preloaded format=platex 2018.4.10)  18 JAN 2019 22:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -936,17 +936,29 @@ LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
 (Font)              scaled to size 8.32214pt on input line 265.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 9.0pt on input line 265.
- [11] [12]
+ [11]
+LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
+(Font)              scaled to size 13.31541pt on input line 282.
+LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
+(Font)              scaled to size 13.31541pt on input line 282.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 14.4pt on input line 282.
+ [12]
 File: GPU.pdf Graphic file (type pdf)
- <GPU.pdf> [13] [14] [15] [16] [17] [18]
+ <GPU.pdf>
+LaTeX Font Info:    Font shape `JT1/utfj/m/2' will be
+(Font)              scaled to size 9.24683pt on input line 316.
+LaTeX Font Info:    Font shape `JY1/utfj/m/2' will be
+(Font)              scaled to size 9.24683pt on input line 316.
+ [13] [14] [15] [16] [17] [18]
 [19] [20] [21] (./èŒ«^^96æ^^96^^87.aux) ) 
 Here is how much of TeX's memory you used:
- 8554 strings out of 493653
- 114948 string characters out of 6148874
+ 8562 strings out of 493653
+ 115054 string characters out of 6148874
  199454 words of memory out of 5000000
- 11924 multiletter control sequences out of 15000+600000
- 39734 words of font info for 81 fonts, out of 8000000 for 9000
+ 11930 multiletter control sequences out of 15000+600000
+ 42780 words of font info for 86 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  43i,8n,70p,1572b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on èŒ«^^96æ^^96^^87.dvi (25 pages, 69888 bytes).
+Output written on èŒ«^^96æ^^96^^87.dvi (25 pages, 72568 bytes).
