@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017) (preloaded format=platex 2018.4.10)  18 JAN 2019 22:40
+This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017) (preloaded format=platex 2018.4.10)  20 JAN 2019 21:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -725,69 +725,100 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \diagbox@outsepl=\dimen184
 \diagbox@outsepr=\dimen185
 ))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count142
+\lst@gtempboxa=\box85
+\lst@token=\toks33
+\lst@length=\count143
+\lst@currlwidth=\dimen186
+\lst@column=\count144
+\lst@pos=\count145
+\lst@lostspace=\dimen187
+\lst@width=\dimen188
+\lst@newlines=\count146
+\lst@lineno=\count147
+\lst@maxwidth=\dimen189
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count148
+\lst@skipnumbers=\count149
+\lst@framebox=\box86
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 4.
+(Font)              scaled to size 9.24683pt on input line 5.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 4.
-LaTeX Font Info:    Try loading font information for T1+ntxtlf on input line 4.
+(Font)              scaled to size 9.24683pt on input line 5.
+LaTeX Font Info:    Try loading font information for T1+ntxtlf on input line 5.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/newtx/t1ntxtlf.fd
 File: t1ntxtlf.fd 2015/01/17 v1.0 font definition file for T1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 4.
- (./èŒ«^^96æ^^96^^87.aux)
+(Font)              scaled to size 10.0pt on input line 5.
+ (./èŒ«^^96æ^^96^^87.aux
+
+LaTeX Warning: Label `tab:EC2018' multiply defined.
+
+
+LaTeX Warning: Label `book' multiply defined.
+
+)
 \openout1 = `èŒ«^^96æ^^96^^87.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 4.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 5.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for FML/fncmi/m/it on input line 4.
-LaTeX Font Info:    Try loading font information for FML+fncmi on input line 4.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for FML/fncmi/m/it on input line 5.
+LaTeX Font Info:    Try loading font information for FML+fncmi on input line 5.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/fouriernc/fmlfncmi.fd
 File: fmlfncmi.fd 2005/12/20 Fontinst v1.928 font definitions for FML/fncmi.
 )
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for FMS/fncm/m/n on input line 4.
-LaTeX Font Info:    Try loading font information for FMS+fncm on input line 4.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for FMS/fncm/m/n on input line 5.
+LaTeX Font Info:    Try loading font information for FMS+fncm on input line 5.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/fouriernc/fmsfncm.fd
 File: fmsfncm.fd 2005/12/20 Fontinst v1.928 font definitions for FMS/fncm.
 )
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for FMX/futm/m/n on input line 4.
-LaTeX Font Info:    Try loading font information for FMX+futm on input line 4.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for FMX/futm/m/n on input line 5.
+LaTeX Font Info:    Try loading font information for FMX+futm on input line 5.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/fourier/fmxfutm.fd
 File: fmxfutm.fd futm-extension
 )
-LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    ... okay on input line 5.
 
 (I search kanjifont definition file: . . )
-\c@mv@tabular=\count142
-\c@mv@boldtabular=\count143
+\c@mv@tabular=\count150
+\c@mv@boldtabular=\count151
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: dvips
@@ -823,32 +854,33 @@ LaTeX Font Info:    ... okay on input line 4.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+\c@lstlisting=\count152
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 9.
+(Font)              scaled to size 9.24683pt on input line 10.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 9.
-LaTeX Font Info:    Try loading font information for T1+qhv on input line 9.
+(Font)              scaled to size 9.24683pt on input line 10.
+LaTeX Font Info:    Try loading font information for T1+qhv on input line 10.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/tex-gyre/t1qhv.fd
 File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
 )
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 9.
+(Font)              scaled to size 8.99994pt on input line 10.
 LaTeX Font Info:    Font shape `JT1/hmc/bx/n' will be
-(Font)              scaled to size 9.24683pt on input line 9.
+(Font)              scaled to size 9.24683pt on input line 10.
 LaTeX Font Info:    Font shape `JY1/hmc/bx/n' will be
-(Font)              scaled to size 9.24683pt on input line 9.
+(Font)              scaled to size 9.24683pt on input line 10.
 LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <10> not available
-(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 9.
+(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 10.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.0pt on input line 9.
+(Font)              scaled to size 10.0pt on input line 10.
 LaTeX Font Info:    Font shape `JT1/hmc/bx/n' will be
-(Font)              scaled to size 13.31541pt on input line 9.
+(Font)              scaled to size 13.31541pt on input line 10.
 LaTeX Font Info:    Font shape `JY1/hmc/bx/n' will be
-(Font)              scaled to size 13.31541pt on input line 9.
+(Font)              scaled to size 13.31541pt on input line 10.
 LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 9.
+(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 10.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 14.4pt on input line 9.
+(Font)              scaled to size 14.4pt on input line 10.
  (./èŒ«^^96æ^^96^^87.toc
 LaTeX Font Info:    Try loading font information for T1+fnc on input line 3.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/fouriernc/t1fnc.fd
@@ -904,61 +936,82 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ]
 LaTeX Font Info:    Font shape `JT1/hmc/bx/n' will be
-(Font)              scaled to size 11.09619pt on input line 42.
+(Font)              scaled to size 11.09619pt on input line 43.
 LaTeX Font Info:    Font shape `JY1/hmc/bx/n' will be
-(Font)              scaled to size 11.09619pt on input line 42.
+(Font)              scaled to size 11.09619pt on input line 43.
 LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <12> not available
-(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 42.
+(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 43.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 42.
+(Font)              scaled to size 12.0pt on input line 43.
  [2] [3]
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 104.
+(Font)              scaled to size 11.09619pt on input line 105.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 104.
+(Font)              scaled to size 11.09619pt on input line 105.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 104.
+(Font)              scaled to size 12.0pt on input line 105.
 
 [4] [5] [6] [7]
-LaTeX Font Info:    Try loading font information for T1+ntxtt on input line 206
+LaTeX Font Info:    Try loading font information for T1+ntxtt on input line 207
 .
  (/usr/local/texlive/2017/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 10.0pt on input line 206.
+(Font)              scaled to size 10.0pt on input line 207.
 [8] [9] [10]
 File: CPU.pdf Graphic file (type pdf)
  <CPU.pdf>
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 265.
+(Font)              scaled to size 8.32214pt on input line 266.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 265.
+(Font)              scaled to size 8.32214pt on input line 266.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.0pt on input line 265.
+(Font)              scaled to size 9.0pt on input line 266.
  [11]
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 282.
+(Font)              scaled to size 13.31541pt on input line 283.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 282.
+(Font)              scaled to size 13.31541pt on input line 283.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 14.4pt on input line 282.
+(Font)              scaled to size 14.4pt on input line 283.
  [12]
 File: GPU.pdf Graphic file (type pdf)
  <GPU.pdf>
 LaTeX Font Info:    Font shape `JT1/utfj/m/2' will be
-(Font)              scaled to size 9.24683pt on input line 316.
+(Font)              scaled to size 9.24683pt on input line 321.
 LaTeX Font Info:    Font shape `JY1/utfj/m/2' will be
-(Font)              scaled to size 9.24683pt on input line 316.
- [13] [14] [15] [16] [17] [18]
-[19] [20] [21] (./èŒ«^^96æ^^96^^87.aux) ) 
-Here is how much of TeX's memory you used:
- 8562 strings out of 493653
- 115054 string characters out of 6148874
- 199454 words of memory out of 5000000
- 11930 multiletter control sequences out of 15000+600000
- 42780 words of font info for 86 fonts, out of 8000000 for 9000
- 934 hyphenation exceptions out of 8191
- 43i,8n,70p,1572b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
+(Font)              scaled to size 9.24683pt on input line 321.
+ [13] [14] [15] [16]
+Overfull \hbox (45.4002pt too wide) in paragraph at lines 384--392
+ [][] 
+ []
 
-Output written on èŒ«^^96æ^^96^^87.dvi (25 pages, 72568 bytes).
+[17]
+LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
+(Font)              scaled to size 7.39746pt on input line 408.
+LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
+(Font)              scaled to size 7.39746pt on input line 408.
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 8.0pt on input line 408.
+LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
+(Font)              scaled to size 7.39746pt on input line 435.
+LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
+(Font)              scaled to size 7.39746pt on input line 435.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.0pt on input line 435.
+ [18] [19] [20] [21] [22] [23] [24] [25] [26] (./èŒ«^^96æ^^96^^87.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 9748 strings out of 493653
+ 132574 string characters out of 6148874
+ 225666 words of memory out of 5000000
+ 13104 multiletter control sequences out of 15000+600000
+ 46314 words of font info for 92 fonts, out of 8000000 for 9000
+ 934 hyphenation exceptions out of 8191
+ 43i,8n,70p,1572b,1639s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on èŒ«^^96æ^^96^^87.dvi (30 pages, 105492 bytes).

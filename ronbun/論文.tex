@@ -1,6 +1,7 @@
 \documentclass[a4j,12pt]{jsarticle}
 \usepackage{semi}
-
+\usepackage{listings}
+\renewcommand{\refname}{}
 \begin{document}
 %目次
 \pagenumbering{roman}
@@ -292,6 +293,7 @@ MMX
 \begin{Large}
 パイプライン
 \end {Large}
+
 CPUで処理を行う時プログラムはフェッチ，読み込み，実行，メモリに書き込みを繰り返している．処理を行う時，これらを順番に実行するが，同時に一つの処理しか行えない．そこでステージ数を増やすことで複数の命令を実行可能とした．Pentium4ではステージを増やし，命令の長さを減らしたことで高クロック化させた．
 
 %ここに図を入れる
@@ -336,21 +338,190 @@ GPUを構成するプロセッサの最小単位はスカラプロセッサで�
 GPUは1つの命令で複数のスカラプロセッサが動作するが，開始のタイミングは同時でなく、プログラムごとに1クロックズレが生じる非同期の動作である．したがって，プログラム上で同期を行うことが重要となる．
 \newpage
 
-\section{プログラム言語}
-本章では本論文の核となるプログラミングについて解説を行う．
-\subsection{JavaScript}
-\subsection{WebWorker}
-\subsection{OffscreenCanvas}
-\newpage
+%プログラミング言語
+\section{プログラミング言語}
+プログラミング言語とは，コンピュータのプログラムを記述する言語であり，ソフトウェアのアルゴリズムを記述するための言語である．
 
+本章では本論文で使用したプログラミング言語について述べる．
+\subsection{プログラミング言語の種類}
+プログラミング言語はいくつかに分類することができる．
+
+ソースコードを機械語へ翻訳する方法は2種類ある．1つはソースコードを実行する前に機械語へ変換を行うコンパイラ型である．特徴として始めにコンパイルを行うため，コンパイルする時間を有するが，コンパイル後は行う必要性がないことからプログラムの実行速度が速くなる．
+
+もう1つはプログラムを1行ずつ機械語に翻訳して実行するインタプリタ型である．インタプリタ型の特徴は直ぐに実行できるため，動作を確認しながら開発を行えることである．しかし，実行する都度機械語に翻訳するためコンパイラ型と比べ処理が遅くなる．
+
+プログラムの構築方法によって，プログラミング言語を分類することができる．手続きを順番に記述する手続き型言語，関連するデータと手続きを１つのまとまりとして捉えるオブジェクト指向言語，プログラムを関数の組み合わせで実行する関数型言語，データ間の関係や理論を記述する記述型言語に分けられる．
+
+%JavaScript
+\subsection{JavaScript}
+本研究ではJavaScriptを用いた開発を行った．そこで本章ではJavaScriptの特徴と歴史について紹介する．
+\subsubsection{JavaScriptの特徴}
+\begin{description}
+ \item[インタプリタ型]\mbox{}\\ 
+JavaScriptはインタプリタ言語である．近年のWebブラウザの多くあh実行時にソースのコンパイルを行うJITコンパイラを導入したことにより，実行速度を高めている．
+ \item[動的なオブジェクト指向言語]\mbox{}\\
+  C++やJavaなどのクラスを用いてオブジェクトを生成するクラスベースのオブジェクト指向言語と違い，JavaScriptにはクラスはないプロトタイプベースのオブジェクト指向言語である．JavaScriptのオブジェクトは後からプロパティやメソッドを動的に追加，削除することができる．
+ \item[動的型付けの言語]\mbox{}\\
+C++やJavaは，変数の型が実行前に決まる静的型付けの言語である．一方，JavaScriptは変数に型がなく，プログラムの実行と共に変数に納めるデータの型が動的に変更する．	   
+\item[関数が第一級オブジェクト]\mbox{}\\
+JavaScriptの関数はオブジェクトであり，関数の引数を渡すことができる．	   
+\item[関数はクロージャを定義する]\mbox{}\\
+JavaScriptの関数はクロージャを定義するため，隠蔽や永続化など様々な機能を実現できる．
+\end{description}
+\subsubsection{JavaScriptの技術的要素}
+JavaScriptの中核となる技術は，ECMAScriptによって規定されている．TC-39委員会によって標準化されECMA-262という文章で公開されている．
+
+Webブラウザで動作するJavaScriptをクライアントJavaSctiptという．ECMAScriptによって規定されたコア言語と，Webブラウザ特有のAPI(Application Program Interface)から構成されている．また，HTML5で規定されているAPIで様々なAPIを利用することができる．
+
+Webサーバーでは，PHPやRubyなどのプログラミング言語が広く利用されているが，近年サーバーサイドJavaScriptの利用も増加してきた．サーバーサイドJavaScriptの実行環境にはNode.jsやRhinoなどがある．
+
+\subsubsection{ECMAScript2018の新機能}
+2015年に公表されたECMAScript6から毎年使用を改定することとなったため，ECMAScript2015とも呼ばれ，現在はESMAScript2018が最新である．そこで定義された新機能を表\ref{tab:EC2018}に示す．
+
+\begin{table} [h]
+\centering
+\caption{ECMAS2018にて改定された主な内容}
+	\begin{tabular} {| c | l |} \hline
+	オブジェクトのRest/Spread プロパティ &  オブジェクト内に別のオブジェクトを展開する構文を実装\\ \hline
+	Promise.prototype.finally &  プロミスの成否に関わらず処理を行うメソッド\\ \hline
+	テンプレートリテラルの改修 &  タグ付きのテンプレートリレラルの場合エラーが出ない\\ \hline
+	正規表現 & sオプションを付けることで改行文字に対応など \\ \hline
+	Asynchronous Iterators & 非同期のイテレータやジェネレータが利用可能 \\ \hline
+	\end{tabular} 
+	\label{tab:EC2018}
+\end{table}
+
+\subsubsection{JavaScriptの歴史}
+JavaScriptは，1995年にNetscape Communications社のBrendan Eichによって開発されNetscape Navigator 2.0にて実装された．1996年，Microsoft社のInternet Exploer 3.0に搭載され急速に普及した．
+
+JavaScriptの黎明期には各々が独自の拡張を行ったため，ブラウザ感での互換性が低く，各ブラウザに対応したコードを書く必要があった．1997年からECMAScriptによる標準化が進められ，各ブラウザはその使用を実装したため，ブラウザ間の互換性の問題は古いのを除き解消している．
+
+JavaScript本来の言語仕様を解説した本がなかったことや，当時のブラウゼ機能の処理が低いことから，プログラマが本気で取り組む言語ではないと考えられていた．しかし，Ajaxという非同期通信技術を使い，デスクトップアプリケーションと遜色ないソフトウェアの登場によりその認識が薄れ，理解されるようになった．2008年からHTML 5.0の策定が始まり，JavaScriptによるWebアプリケーションを作るための様々なAPIが規定され，ブラウザの高品質化が進み，JavaScriptが普及していった．
+
+%WebWorker
+\subsection{WebWorker}
+WebWorkerとはHTML 5.0で規定されたAPIの一つである．JavaScriptはシングルスレッドの言語のため1つの関数が実行されているときは，他の関数の実行は保留される．WebWorkerは特定の処理をマルチスレッドで実行するAPIである．これによって高負荷の処理によって処理が中断される問題が解消される．WebWorkerで並列に実行されるスレッドをワーカーと呼び，メインスレッドとワーカーとは異なるグローバルオブジェクトを持ち互いのグローバルオブジェクトを参照することはできない．
+
+\subsubsection{WebWorkerの実装方法}
+WebWorkerを利用するにはワーカーの定義，データの送信，ワーカーでデータを受信．ワーカーでデータを送信，ワーカーのデータを受信の5つの作業が必要となってくる．
+ワーカーを定義するJavaScriptのファイルが必要となる．そこでワーカーオブジェクトを生成する．
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, frame=single]
+var worker = new Worker('worker.js');
+ \end{lstlisting}
+ワーカーのファイルは相対URLと絶対URL両方用いることができる．絶対URLの場合は同一生成元である必要がある．
+
+
+postMessageを使うことでワーカーにメッセージを送ることができる
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, frame=single]
+worker.postMessage("message");
+ \end{lstlisting}
+複製された値がワーカーに送信される．WindowオブジェクトやDocumentオブジェクトは送信できない．
+
+ワーカーでメッセージを受信するにはグローバルオブジェクトにmessageイベントハンドラを登録しておく．送信されたデータはイベントオブジェクトのdataプロパティに格納される．
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, frame=single]
+self.onmessage = function(e){
+	var  message = e.data;
+};
+ \end{lstlisting}
+
+ワーカーで処理したデータをメインスレッドに送信するには，グローバルオブジェクトのpostmessageを呼び出す．
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, frame=single]
+self.postmessage('message');
+ \end{lstlisting}
+
+メインスレッドでメッセージを受信するには，Workerオブジェクトにmessageイベントハンドラを登録しておき，送信されたデータはdataプロパティに格納されている．
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, frame=single]
+worker.onmessage = function(e) {
+	var message = e.data;
+};
+ \end{lstlisting}
+
+%OffscreenCanvas
+\subsection{OffscreenCanvas}
+OffscreenCanvasとは，従来行えなかったWebWorkerでの描画処理を可能とするAPIである．
+
+従来はJavaScriptで動的に描画を行うかメインとなるスレッドでHTMLのパースの結果を描画するしか方法がなかった．WebWorkerの登場により，別スレッドに計算処理を分離することで処理を高速化させていた．しかし，メインスレッドの描画速度は上がらないため，3Dなど描画対象が多くなるとイベントが大量に発生し，他の処理が中断し結果として動作が遅いということがあった．しかし，OffscreenCanvasの登場でそれらの現象の改善が期待されるようになった．
+
+ワーカーと同様にワーカーを定義するJavaScriptとそのJavascriptからデータを送信する必要があるが，OffscreenCanvasにおいてはその後必要とされていたワーカーからメインへのデータを送信する必要がなくなった．
+
+Webブラウザにおいて本機能が標準で行えるようになったのは2018年9月にリリースされたChrome 69からであり，未だ対応しているブラウザは数少なく，2019年1月の時点でChromeの他にAndroid Brower，Chrome for Android，Firefox，OperaとOpera for AndroidがOffscreenCanvasに対応している．
+
+\subsubsection{OffscreenCanvasの実装法方}
+まず，WebWorkerと同様にワーカーを定義する必要がある．
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, frame=single]
+var worker = new Worker('worker.js');
+ \end{lstlisting}
+ 
+ 次にCanvas要素の描画コントロールをOffscreenCanvasに移譲する．
+ \begin{lstlisting}[basicstyle=\ttfamily\footnotesize, frame=single]
+var offscreenCanvas = canvas.transferControlToOffscreen();
+ \end{lstlisting}
+ 
+ データをpostMessageを用いてワーカーに送る
+ \begin{lstlisting}[basicstyle=\ttfamily\footnotesize, frame=single]
+worker.postMessage({canvas: offscreenCanvas}, [offscreenCanvas]);
+ \end{lstlisting}
+ 
+ 最後にワーカーで送信されたデータを受け取る．ワーカーと同様にdataに送信されたデータが格納されている．
+  \begin{lstlisting}[basicstyle=\ttfamily\footnotesize, frame=single]
+ onmessage = (event) => {
+  const offscreenCanvas = event.data.canvas;
+}
+ \end{lstlisting} 
+これら一連の処理を行った後は，ワーカーであることを意識せずに，演算，描画を行う事ができるため，1つのファイルでrequestAnimationFrameやsetIntervalを用いたアニメーションを制作することが可能である．
+また，HTMLのcanvas要素で使用されるメッソドを用いることは可能なため，従来のキャンバスの操作と変わらない操作性を保持している．
+
+また，ワーカーと同様にwindowオブジェクト，DocumentオブジェクトやDOMの操作を行うことができず，他の処理とは非同期型であり，それぞれが独立しているため，処理がOffscreenCanvas内で完結し，OffscreenCanvas内部の処理を参照とした同期処理は行えない．
+
+\begin{table} [h]
+\centering
+\caption{offscreen canvasにあるプロパティ一覧}
+	\begin{tabular} {| c | l |} \hline
+	OffscreenCanvas.height & offscreen canvasの高さを設定 \\ \hline
+	OffscreenCanvas.width & offscreen canvasの横幅を設定 \\ \hline
+	\end{tabular} 
+	\label{tab:EC2018}
+\end{table}
+\newpage
+%実装したシミュレータ
 \section{実装したシミュレータ}
 本研究では，OffscreenCanvasを利用し，FTDT法によって動作するシミュレータ教材の軽量化とそれによって得られた開発効率の検証を行った．
 そこで，本研究では昨年の本研究室の卒業論文である「」を基に開発を行った．
 先行研究ではCPUとGPUの速度比較を行うという研究だった．以降本研究では，昨年開発されたシミュレータでCPUを対象とした物をCPU,GPUで動作する物をGPUと呼ぶ．同様に本研究で開発したOffscreenCanvasを用いたシミュレータをOffscreen，WebWorkerを用いて制作したシミュレータをWorkerと呼ぶことにする．
+HTMLでキャンバスの大きさを制作した場合，その大きさも送信されるが，OffscreenCanvas上でキャンバスの大きさを指定することもできる．
 
 本章では実際に開発したシミュレータと理論の開設を図を交えて説明，実験の方法まで論じる．
 \subsection{開発したシミュレータ}
+\subsubsection{アルゴリズム}
 \subsection{実験方法}
+本章では計測を実施した環境とその方法を記載する．
+\subsubsection{計測したパソコンのスペック}
+本研究では以下のスペックのパソコンを用いて計測を行った．
+1,000回計算を行う時間を計測，10,000回まで行う．計測をそれぞれ3回行い誤差の平均を求める
+
+\begin{table} [h]
+\centering
+\caption{計測環境}
+	\begin{tabular} {| c | c |} \hline
+	メモリ & 32GB \\ \hline
+	CPU & 3.2GHz Intel Core i5 \\ \hline
+	GPU & NVIDIA GeForce GT 775M 1024MB\\ \hline
+	ブラウザ & Google Chrome 71.0.3578.98(64ビット)　\\ \hline
+	\end{tabular} 
+	\label{tab:tab1}
+\end{table}
+
+\subsection{計測方法}
+本研究ではそれぞれ1,000回計算するごとに費やした時間を計測，10,000回計算を行い，1,000ごとの時間と，10,000回計算を行うのに有した時間を測定した．
+
+この作業を3回行いそれぞれのCPUを基準とした処理にかかった時間を式\ref{eq:cal}に当てはめて求めた．
+
+WebWorkerとOffscreenCanvasはキャンバスを分割し表示させているため，左右で計測時間が異なる．したがって，WebWorkerとOffscreenCanvasはより計測時間を必要としたキャンバスを参照する．
+\begin{equation}
+ 処理効率 = \frac { 各手法10,000回の処理速度 [ms]} { 基準10,000回の処理速度[ms] } 
+\label{eq:cal}
+\end{equation}
+
 \newpage
 
 \section{実験結果}
@@ -364,6 +535,10 @@ GPUは1つの命令で複数のスカラプロセッサが動作するが，開�
 \newpage
 
 \section{参考文献}
+\begin{thebibliography}{99}
+\bibitem{book}\url{https://arui.tech/es2018-new-features/}
+\bibitem{book}磯 博:"プログラミングの教養から言語仕様，開発技法までが正しく身につく徹底マスターJavaScriptの教科書",SB Creative,2017年3月25日
+\end{thebibliography}
 \newpage
 
 \section{付録　制作したプログラム}
