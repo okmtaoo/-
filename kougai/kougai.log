@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017) (preloaded format=platex 2018.4.10)  18 JAN 2019 20:30
+This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017) (preloaded format=platex 2018.4.10)  22 JAN 2019 23:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -706,48 +706,43 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 Excluding 'comment' comment.
 File: sim.pdf Graphic file (type pdf)
  <sim.pdf>
-LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
-(Font)              scaled to size 9.29993pt on input line 52.
-LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
-(Font)              scaled to size 7.06795pt on input line 52.
-LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
-(Font)              scaled to size 5.57996pt on input line 52.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 52.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 52.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 52.
-LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 7.02759pt on input line 52.
-LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 52.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 52.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 52.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 52.
-File: wake.pdf Graphic file (type pdf)
- <wake.pdf>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
+(Font)              scaled to size 9.29993pt on input line 65.
+LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
+(Font)              scaled to size 7.06795pt on input line 65.
+LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
+(Font)              scaled to size 5.57996pt on input line 65.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 9.19998pt on input line 65.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 6.99199pt on input line 65.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 5.51999pt on input line 65.
+LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
+(Font)              scaled to size 7.02759pt on input line 65.
+LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
+(Font)              scaled to size 5.5481pt on input line 65.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 9.19998pt on input line 65.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 6.99199pt on input line 65.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 5.51999pt on input line 65.
+File: chart.pdf Graphic file (type pdf)
 
-Overfull \hbox (5.1707pt too wide) detected at line 99
-$\FML/fncmi/m/it/10 :\T1/fnc/m/n/10 795556697$ 
- []
-
-[1
+<chart.pdf> [1
 
 
 ] (./kougai.aux) ) 
 Here is how much of TeX's memory you used:
  7872 strings out of 493653
- 111682 string characters out of 6148874
+ 111684 string characters out of 6148874
  170402 words of memory out of 5000000
  11343 multiletter control sequences out of 15000+600000
  39007 words of font info for 89 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 60i,11n,94p,1868b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,8n,94p,1369b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on kougai.dvi (1 page, 8668 bytes).
+Output written on kougai.dvi (1 page, 8296 bytes).
