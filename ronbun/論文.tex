@@ -261,7 +261,7 @@ CPUは，外部から供給されるクロック信号に合わせて内部動�
 
 \begin{figure}[htbp]
  \begin{center}
-  \includegraphics[width=100mm]{CPU.pdf}
+  \includegraphics[width=50mm]{CPU.pdf}
  \end{center}
  \caption{CPUの内部構造の略図}
  \label{fig:cpu}
@@ -284,11 +284,26 @@ CPUは，外部から供給されるクロック信号に合わせて内部動�
 MMX
 \end {Large}
 
-コンピュータ内で処理されているフルカラー処理は，24ビットで行われている．24ビットを処理するには8ビットを3回行うか，8ビットをパディングしてデータを処理する．各要素をバラバラに処理する場合3回演算を行うため非常に時間がかかった．
+コンピュータ内で処理されているフルカラー処理は，24ビットで行われている．24ビットを処理するには8ビットを3回行うか，8ビットをパディングして32ビットとしてデータを処理する．各要素をバラバラに処理する場合3回演算を行うため非常に時間がかかった．
 
 そこで64ビットレジスタを32ビットを2つ，16ビットを4つとみなし，それらの領域をまとめて演算するという方式が用いられた．32ビットを2つ処理するが，同じ処理を2回行うわけではなく，まとめて処理を行う．この処理をMMXと呼び，現在ではSSEと呼ばれている．
 
-%ここに図を入れる
+\begin{figure}[htbp]
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[width=60mm]{MMX.pdf}
+  \end{center}
+  \caption{MMX導入前}
+  \label{fig:MMX}
+ \end{minipage}
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[width=60mm]{MMX2.pdf}
+  \end{center}
+  \caption{MMX導入後}
+  \label{fig:MMX2}
+ \end{minipage}
+\end{figure}
 
 \begin{Large}
 パイプライン
@@ -311,7 +326,7 @@ GPUは元々画像処理を行うことを目的としている並列演算ハ�
 
 \begin{figure}[htbp]
  \begin{center}
-  \includegraphics[width=100mm]{GPU.pdf}
+  \includegraphics[width=50mm]{GPU.pdf}
  \end{center}
  \caption{グラフィックボード}
  \label{fig:gpu}
@@ -484,7 +499,7 @@ worker.postMessage({canvas: offscreenCanvas}, [offscreenCanvas]);
 \end{table}
 \newpage
 %実装したシミュレータ
-\section{実装したシミュレータ}
+\section{開発したシミュレータ}
 本研究では，OffscreenCanvasを利用し，FTDT法によって動作するシミュレータ教材の軽量化とそれによって得られた開発効率の検証を行った．
 そこで，本研究では昨年の本研究室の卒業論文である「」を基に開発を行った．
 先行研究ではCPUとGPUの速度比較を行うという研究だった．以降本研究では，昨年開発されたシミュレータでCPUを対象とした物をCPU,GPUで動作する物をGPUと呼ぶ．同様に本研究で開発したOffscreenCanvasを用いたシミュレータをOffscreen，WebWorkerを用いて制作したシミュレータをWorkerと呼ぶことにする．
@@ -492,20 +507,24 @@ HTMLでキャンバスの大きさを制作した場合，その大きさも送�
 
 本章では実際に開発したシミュレータと理論の開設を図を交えて説明，実験の方法まで論じる．
 \subsection{開発したシミュレータ}
+本研究では昨年度本学卒業論文である「GPU利用によるシミュレータ教材の演算速度」で用いられたソースコードを拡張することで開発を行う．
+
+また，昨年度CPU向けに開発されたプログラムを処理1，GPU向けに開発されたプログラムを処理2，本研究で開発するWebWorkerを利用したプログラムを処理3，OffscreenCanvasを利用したプログラムを処理4とする．
+
 \subsubsection{アルゴリズム}
+処理1では
 \subsection{実験方法}
 本章では計測を実施した環境とその方法を記載する．
-\subsubsection{計測したパソコンのスペック}
+\subsubsection{計測環境}
 本研究では以下のスペックのパソコンを用いて計測を行った．
-1,000回計算を行う時間を計測，10,000回まで行う．計測をそれぞれ3回行い誤差の平均を求める
-
 \begin{table} [h]
 \centering
 \caption{計測環境}
 	\begin{tabular} {| c | c |} \hline
+	OS & macOS High Sierra \\ \hline
 	メモリ & 32GB \\ \hline
-	CPU & 3.2GHz Intel Core i5 \\ \hline
-	GPU & NVIDIA GeForce GT 775M 1024MB\\ \hline
+	CPU & Intel Core i5 3.2GHz (４コア) \\ \hline
+	GPU & NVIDIA GeForce GT 775M \\ \hline
 	ブラウザ & Google Chrome 71.0.3578.98(64ビット)　\\ \hline
 	\end{tabular} 
 	\label{tab:tab1}
@@ -514,17 +533,20 @@ HTMLでキャンバスの大きさを制作した場合，その大きさも送�
 \subsection{計測方法}
 本研究ではそれぞれ1,000回計算するごとに費やした時間を計測，10,000回計算を行い，1,000ごとの時間と，10,000回計算を行うのに有した時間を測定した．
 
-この作業を3回行いそれぞれのCPUを基準とした処理にかかった時間を式\ref{eq:cal}に当てはめて求めた．
+時間を式\ref{eq:cal}に当てはめて求めた．
 
 WebWorkerとOffscreenCanvasはキャンバスを分割し表示させているため，左右で計測時間が異なる．したがって，WebWorkerとOffscreenCanvasはより計測時間を必要としたキャンバスを参照する．
 \begin{equation}
- 処理効率 = \frac { 各手法10,000回の処理速度 [ms]} { 基準10,000回の処理速度[ms] } 
+ 時間比 = \frac { 各手法10,000回の処理速度 [ms]} { 基準10,000回の処理速度[ms] } 
 \label{eq:cal}
 \end{equation}
 
 \newpage
 
 \section{実験結果}
+\newpage
+
+\section{開発したシミュレータ教材}
 \newpage
 
 \section{結言}
@@ -538,6 +560,7 @@ WebWorkerとOffscreenCanvasはキャンバスを分割し表示させている�
 \begin{thebibliography}{99}
 \bibitem{book}\url{https://arui.tech/es2018-new-features/}
 \bibitem{book}磯 博:"プログラミングの教養から言語仕様，開発技法までが正しく身につく徹底マスターJavaScriptの教科書",SB Creative,2017年3月25日
+\bibitem{book}大島 篤:"見てわかるパソコン解体新書",SB Creative,2001年4月30日
 \end{thebibliography}
 \newpage
 

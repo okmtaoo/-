@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017) (preloaded format=platex 2018.4.10)  20 JAN 2019 21:29
+This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017) (preloaded format=platex 2018.4.10)  24 JAN 2019 12:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -768,6 +768,9 @@ LaTeX Warning: Label `tab:EC2018' multiply defined.
 
 LaTeX Warning: Label `book' multiply defined.
 
+
+LaTeX Warning: Label `book' multiply defined.
+
 )
 \openout1 = `èŒ«^^96æ^^96^^87.aux'.
 
@@ -975,43 +978,52 @@ LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 283.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 14.4pt on input line 283.
- [12]
+File: MMX.pdf Graphic file (type pdf)
+ <MMX.pdf>
+File: MMX2.pdf Graphic file (type pdf)
+ <MMX2.pdf>
+Overfull \hbox (1.49992pt too wide) in paragraph at lines 292--306
+[][]$[]$[] []$[]$[] 
+ []
+
+[12]
 File: GPU.pdf Graphic file (type pdf)
  <GPU.pdf>
 LaTeX Font Info:    Font shape `JT1/utfj/m/2' will be
-(Font)              scaled to size 9.24683pt on input line 321.
+(Font)              scaled to size 9.24683pt on input line 336.
 LaTeX Font Info:    Font shape `JY1/utfj/m/2' will be
-(Font)              scaled to size 9.24683pt on input line 321.
+(Font)              scaled to size 9.24683pt on input line 336.
  [13] [14] [15] [16]
-Overfull \hbox (45.4002pt too wide) in paragraph at lines 384--392
+Overfull \hbox (45.4002pt too wide) in paragraph at lines 399--407
  [][] 
  []
 
 [17]
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 7.39746pt on input line 408.
+(Font)              scaled to size 7.39746pt on input line 423.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 7.39746pt on input line 408.
+(Font)              scaled to size 7.39746pt on input line 423.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 8.0pt on input line 408.
+(Font)              scaled to size 8.0pt on input line 423.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 7.39746pt on input line 435.
+(Font)              scaled to size 7.39746pt on input line 450.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 7.39746pt on input line 435.
+(Font)              scaled to size 7.39746pt on input line 450.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 435.
- [18] [19] [20] [21] [22] [23] [24] [25] [26] (./èŒ«^^96æ^^96^^87.aux)
+(Font)              scaled to size 8.0pt on input line 450.
+ [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] (./èŒ«^^96æ^^96^^87.aux)
+
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 9748 strings out of 493653
- 132574 string characters out of 6148874
- 225666 words of memory out of 5000000
- 13104 multiletter control sequences out of 15000+600000
+ 9754 strings out of 493653
+ 132623 string characters out of 6148874
+ 225684 words of memory out of 5000000
+ 13108 multiletter control sequences out of 15000+600000
  46314 words of font info for 92 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 43i,8n,70p,1572b,1639s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,9n,70p,1571b,1639s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on èŒ«^^96æ^^96^^87.dvi (30 pages, 105492 bytes).
+Output written on èŒ«^^96æ^^96^^87.dvi (32 pages, 107980 bytes).
