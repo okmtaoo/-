@@ -10,108 +10,93 @@
 \begin{document}
 \maketitle
 \section{はじめに}
-シミュレータ教材は不可視現象を可視化する教材である．そのため，イメージが困難な事象への理解を促す手法として有用である．
-e-Learningの普及に伴いシミュレータ教材の活躍の場が増加し，様々な分野に対応したシミュレータ教材と効率的な開発手法が必要とされている．
+シミュレータ教材は不可視現象を可視化する教材である．そのため，イメージが困難な事象の理解を促す手法として有用である．
+e-Learningの普及に伴いシミュレータ教材の活用の場が増加し，様々な分野に対応したシミュレータ教材と効率的な開発手法が必要とされている．
 
-磁場や音場などの波形を可視化するシミュレータにおいてFTDT(Finite-difference time-domain )法が広く用いられているが演算回数が多いことから処理速度は決して速くない．
-本研究室では昨年，FTDT法を用いたシミュレータ教材をGPUに適用しCPUとの処理速度を比較する研究が行われた．その結果，教材は大幅に処理速度が向上したが，ソースコードの変更箇所が多く，
-複雑なため容易に実装できないという問題点が浮上した．
+本研究室では昨年，高負荷なシミュレータ教材にプログラマブルシェーダを利用しGPUに適用させ，CPUとの処理速度を比較する研究が行われた．その結果，教材の処理速度は大幅に向上したが，ソースコードの変更箇所が多く，複雑なため容易に実装できないという問題点が浮上した．
 
-%この問題点はJavaScriptでWebWorkerを活用し，描画を行うOffscreenCanvasを利用することで緩和されると考える．
-
-本研究ではOffscreenCanvasを利用したFTDT法を用いたシミュレータ教材の開発を行い，ソフトウェアの生産性と処理速度を昨年開発されたシミュレータ教材と比較することで，有用性の検証を行うことを目的とする．
-
-\begin{comment}
-
-\section{WebWorkerとOffscreenCanvas}
-\subsection{WebWorker}
-WebWorkerはJavaScriptでマルチスレッド処理を可能にするAPIである．Workerを利用するには処理ごとにファイルを分ける．
-また，Worker上で描画を行うことができないため描画処理を行いたい場合は，Workerを定義するメインのスレッドに対して描画処理を渡す必要がある．
-
-\subsection{OffscreenCanvas}
-OffscreenCanvasはWebWorkerを利用してWorker上で描画処理を可能にするAPIである．
-
-事前にCanvasタグをHTMLないしJavaScriptで生成し,Workerに処理を譲渡，描画まで行うため，Workerより必要な処理が少なく手軽に実装できる．
-
-\end{comment}
+この問題点はWebWorkerによるマルチスレッド化と，サブスレッドから直接描画を行うOffscreenCanvasを利用することで緩和できると考られ，
+そこで本研究では，OffscreenCanvasを利用したシミュレータ教材の開発を行い，ソフトウェアの生産性と処理速度の観点から有用性の検証を行うことを目的とする．
 
 \section{開発したシミュレータ教材}
-本研究ではOffscreenCanvasを利用したシミュレータ教材の有用性の検証を行う．プログラムは昨年度本学の卒業論文である「GPU利用によるシミュレータ教材の演算速度」を拡張し，処理速度とソースコードの比較を行う．
+本研究ではシミュレータにおけるOffscreenCanvasの有用性の検証を行う．プログラムは昨年度本学の卒業論文である「GPU利用によるシミュレータ教材の演算速度」を拡張した\cite{book}．
+\cite{book}では複数の音源から発せられる音場を表示するシミュレータを開発した．
+昨年開発されたCPUとGPU向けのプログラムと，WebWorker，OffscreenCanvasを利用したシミュレータの計測を行い，それぞれを手法1，手法2，手法3，手法4と呼ぶ
 
-図\ref{fig:one}は複数の音源から発生する音場を可視化したシミュレータである．キャンバスを左右に分けることにより，負荷を分散させた．
+図\ref{fig:sim}は実際に開発したシミュレータである．キャンバスを左右に分け,workerで処理を分散させた．
 
+図\ref{fig:cpu}は手法1のフローチャートである．これを利用しWebWorkerとOffscreenCanvasの開発を行う．
 
+図\ref{fig:worker}は手法3のフローチャートである．mainでworkerを定義することで，手法1をマルチスレッド化した．worker内で描画を行うことができない．
+
+図\ref{fig:offsc}は手法4のフローチャートである．手法3を利用し，worker内での描画を可能とした．
+
+\setlength\textfloatsep{0pt}
 \begin{figure}[htbp]
-  \begin{center}
-   \includegraphics[width=30mm]{sim.pdf}
-  \end{center}
+\begin{minipage}{0.49\hsize}
+  \centering
+   \includegraphics[width=35mm , angle=-90]{sim.pdf}
+   \vspace{6pt}
   \caption{開発したシミュレータ}
-  \label{fig:one}
+  \label{fig:sim}
+ \end{minipage}
+ \begin{minipage}{0.49\hsize}
+  \centering
+   \includegraphics[width=20mm]{cpu_chart.pdf}
+  \caption{手法1のフローチャート}
+  \label{fig:cpu}
+ \end{minipage}
+ 
+ \begin{minipage}{0.5\hsize}
+ \centering
+  \vspace{5pt}	
+  \includegraphics[width=35mm]{worker_chart.pdf}
+     \belowcaptionskip=25pt
+  \abovecaptionskip=5pt
+  \caption{手法3のフローチャート}
+  \label{fig:worker}
+ \end{minipage}
+ \begin{minipage}{0.5\hsize}
+ \centering
+ \vspace{-30pt}	
+  \includegraphics[width=40mm  ]{offscreen_chart.pdf}
+  \abovecaptionskip=30pt
+  \belowcaptionskip=-10pt
+  \caption{手法4のフローチャート}
+  \label{fig:offsc}
+ \end{minipage}
 \end{figure}
 
-\section{検証方法}
-昨年のシミュレータの処理にかかる時間や，プログラムが変更した箇所の比較を行う.
- 
-1,000回計算する際の時間を計測し，10,000回まで行った．
-比較に昨年度に制作されたプログラム2つ，昨年度の論文で演算速度の比較を行ったCPUとGPU向けのプログラムと本論文で開発したOffscreenCanvas，WebWorkerを利用した4つのシステム用いた．
-本梗概では，昨年度制作されたプログラムのうち，CPUを対象としたプログラムをCPUとし，GPU向けのプログラムをGPUと称する．
+\section{検証}
+4つの手法に関して処理にかかる時間や，プログラムの追加・変更箇所の比較を行い，10,000回演算を行う時間を計測した．
 
+計測にはCPUにIntel Core i5 3.2GHz，GPUにはNVIDIA GeForce GT 775Mを搭載したパソコンを利用した．
 
-計測に使用した機材のスペックを表 \ref{tab:tab1}に示す．
+手法1の処理に費やした時間を基準として時間比を求めた．その結果を表\ref{tab:tab2}に示す．
 
-\begin{table} [h]
+\begin{table} [htbp]
 \centering
-\caption{使用した機材のスペック}
-	\begin{tabular} {| c | c |} \hline
-	OS & macOS High Sierra \\ \hline
-	メモリ & 32GB \\ \hline
-	CPU & 3.2GHz Intel Core i5(コア数4) \\ \hline
-	GPU & NVIDIA GeForce GT 775M 1024MB\\ \hline
-	\end{tabular} 
-	\label{tab:tab1}
-\end{table}
-
-
-
-\section{検証結果}
-CPUを基準とした各システムの処理に費やした時間を式（\ref{eq:eq1}）に当てはめて求めた．
-
-キャンバスを分割したWebWorkerとOffscreenCanvasは処理時間が遅い方を参照する．その結果を表\ref{tab:tab2}に記した．
-
-その結果，WebWorkerが一番速く処理を行えることがわかった．
-\begin{equation}
- 処理時間比率 = \frac { 各手法10,000回の処理時間 \, \mathrm{(ms)}} { 基準10,000回の処理時間\, \mathrm{(ms)} } 
-\label{eq:eq1}
-\end{equation}
-
-
-\begin{table} [h]
-\centering
-\caption{各種法の処理速度比較}
-	\begin{tabular} {| c | l |} \hline
-	利用したシステム　& 処理時間比率 \\ \hline
-	GPU & 0.810988 \\ \hline
-	OffscreenCanvas & 0.80789763 \\ \hline
-	WebWorker & 0.795556697 \\ \hline
+\vspace{-30pt}
+\caption{各種法の高速化率}
+\vspace{5pt}
+	\begin{tabular} {| c | c | c | } \hline
+	手法　& 処理時間  (s)  & 時間比 \\ \hline
+	手法1 & 206.608 & 1 \\ \hline 
+	手法2 & 128.652 & 0.622689 \\ \hline
+	手法3 & 98.094 & 0.474786 \\ \hline
+	手法4 & 164.368 & 0.795557 \\ \hline
 	\end{tabular} 
 	\label{tab:tab2}
 \end{table}
-シミュレータのアルゴリズムを変更することはなかった．また，図\ref{fig:two}のようにOffscreenCanvasはworkerを宣言するメインの処理がWebWorkerと比較して少なくなることがわかった．
-\begin{figure}[htbp]
-  \begin{center}
-   \includegraphics[width=60mm]{chart.pdf}
-  \end{center}
-  \caption{メインの処理}
-  \label{fig:two}
-\end{figure}
-%Workerのみと違いworkerを宣言するメインではデータのデータの引き渡しがないだけでなく，左右のキャンバスを整合性をとる必要がないことからOffscreenCanvasはWorkerより実装が容易である．
+手法1がシングルスレッドで動作するのに対し,手法3，手法4は2つのスレッドを用いて演算処理を行っているため処理速度が向上した．
 
-\section{終わりに}
-本研究ではOffscreenCanvasのFTDT法を用いたシミュレータへの有用性を検証した．
-OffscreenCanvasは処理速度向上に役立ち，WebWorkerより実装がしやすいことがわかった．
-今回WebWorkerの処理が一番早かったのは
+図\ref{fig:cpu}・図\ref{fig:worker}・図\ref{fig:offsc}より手法3・手法4のプログラムは，mainからworkerへデータの送信を追加した．更に，手法3に関してはworkerから演算の結果をmainに送信を行う処理を追加した．
+手法3は手法1の演算と描画が分離しているため，演算が終わる度に結果を送信する必要があり，mainとworker間で送受信が何度も行われた．一方手法4は，手法1の演算と描画が同じworker内で完結するため，繰り返しデータの送受信を行う必要がなく，処理1のソースコードの原型を崩すことなく移植が行えた．
+プログラムの変更箇所はHTMLでキャンバスを追加，描画範囲の指定を行うことで実装できた．
+\section{おわりに}
+本研究ではシミュレータ開発におけるOffscreenCanvasの有用性を生産性と処理速度の観点から検証した．シングルスレッドで動作するプログラムより処理速度が向上し，WebWorkerより容易に実装が可能なことがわかった．今後は更なる処理速度の向上と，生産性の向上が求められる．
 \begin{thebibliography}{99}
 
-	\bibitem{book}中嶋　大貴:``GPU利用によるシミュレータ教材の演算速度'',本学卒業研究,(2018)
+	\bibitem{book}中嶋　大貴:``GPU利用によるシミュレータ教材の演算速度'',平成29年度卒業論文,(2018)
 \end{thebibliography}
 \end{document}
