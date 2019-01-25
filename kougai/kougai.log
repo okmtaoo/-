@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017) (preloaded format=platex 2018.4.10)  24 JAN 2019 11:52
+This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017) (preloaded format=platex 2018.4.10)  25 JAN 2019 23:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -702,44 +702,41 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <12> not available
 (Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 12.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 12.0pt on input line 12.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 File: sim.pdf Graphic file (type pdf)
  <sim.pdf>
-Overfull \hbox (12.9974pt too wide) in paragraph at lines 45--47
+Overfull \hbox (12.9974pt too wide) in paragraph at lines 26--28
  [][] 
  []
 
 LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
-(Font)              scaled to size 9.29993pt on input line 49.
+(Font)              scaled to size 9.29993pt on input line 30.
 LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
-(Font)              scaled to size 7.06795pt on input line 49.
+(Font)              scaled to size 7.06795pt on input line 30.
 LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
-(Font)              scaled to size 5.57996pt on input line 49.
+(Font)              scaled to size 5.57996pt on input line 30.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 49.
+(Font)              scaled to size 9.19998pt on input line 30.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 49.
+(Font)              scaled to size 6.99199pt on input line 30.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 49.
+(Font)              scaled to size 5.51999pt on input line 30.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 7.02759pt on input line 49.
+(Font)              scaled to size 7.02759pt on input line 30.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 49.
+(Font)              scaled to size 5.5481pt on input line 30.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 49.
+(Font)              scaled to size 9.19998pt on input line 30.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 49.
+(Font)              scaled to size 6.99199pt on input line 30.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 49.
+(Font)              scaled to size 5.51999pt on input line 30.
 File: cpu_chart.pdf Graphic file (type pdf)
 <cpu_chart.pdf>
-File: worker_chart.pdf Graphic file (type pdf)
- <worker_chart.pdf>
-File: offscreen_chart.pdf Graphic file (type pdf)
- <offscreen_chart.pdf>
-Overfull \hbox (1.49994pt too wide) in paragraph at lines 58--76
+File: worker_chart2.pdf Graphic file (type pdf)
+ <worker_chart2.pdf>
+File: offsc_chart2.pdf Graphic file (type pdf)
+ <offsc_chart2.pdf>
+Overfull \hbox (1.49994pt too wide) in paragraph at lines 39--57
 [][]$[]$[] []$[]$[] 
  []
 
@@ -750,16 +747,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-[2
-
-] (./kougai.aux) ) 
+(./kougai.aux) ) 
 Here is how much of TeX's memory you used:
- 7876 strings out of 493653
- 111766 string characters out of 6148874
- 171400 words of memory out of 5000000
- 11345 multiletter control sequences out of 15000+600000
+ 7875 strings out of 493653
+ 111753 string characters out of 6148874
+ 170400 words of memory out of 5000000
+ 11344 multiletter control sequences out of 15000+600000
  39007 words of font info for 89 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 60i,9n,94p,1631b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,8n,94p,1631b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on kougai.dvi (2 pages, 10932 bytes).
+Output written on kougai.dvi (1 page, 8820 bytes).
