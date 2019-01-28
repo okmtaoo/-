@@ -1,3 +1,4 @@
-\contentsline {table}{\numberline {1}{\ignorespaces ECMAS2018にて改定された主な内容}}{17}
-\contentsline {table}{\numberline {2}{\ignorespaces offscreen canvasにあるプロパティ一覧}}{20}
-\contentsline {table}{\numberline {3}{\ignorespaces 計測環境}}{21}
+\contentsline {table}{\numberline {1}{\ignorespaces ECMAS2018にて改定された主な内容}}{20}
+\contentsline {table}{\numberline {2}{\ignorespaces 計測環境}}{24}
+\contentsline {table}{\numberline {3}{\ignorespaces 演算時間と時間比}}{25}
+\contentsline {table}{\numberline {4}{\ignorespaces 手法3,手法4のCanvasごとの演算時間の差}}{25}

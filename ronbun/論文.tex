@@ -2,7 +2,49 @@
 \usepackage{semi}
 \usepackage{listings}
 \renewcommand{\refname}{}
+\renewcommand{\lstlistingname}{プログラム}
 \begin{document}
+
+%\begin{comment}
+%表紙
+\begin{titlepage}
+\begin{center}
+\begin{LARGE}
+平成30年度　卒業論文
+\end{LARGE}
+
+\vspace{20mm}
+\begin{Huge}
+シミュレータ教材開発に関する
+
+一提案
+\end{Huge}
+
+\vspace{40mm}
+\begin{LARGE}
+指導教員　須田　宇宙　准教授
+
+
+\vspace{15mm}
+千葉工業大学　情報ネットワーク学科
+
+須田研究室
+
+\vspace{20mm}
+1532040　岡本　悠佑
+\end{LARGE}
+\end{center}
+
+
+\vspace{35mm}
+\begin{LARGE}
+\rightline{提出日　2019年2月6日(火)}
+ \end{LARGE}
+ 
+\end{titlepage}
+\newpage
+
+
 %目次
 \pagenumbering{roman}
 \setcounter{page}{1} % ページ番号1
@@ -15,7 +57,6 @@
 %表目次
 \listoftables
 \clearpage
-
 
 %本文
 \newpage
@@ -41,7 +82,7 @@
 e-Learningとはelectronic Learningの略称である．その名の通りコンピュータやネットワークなどの情報技術を扱う学習形態である．e-Learningは1999年11月，アメリカフロリダ州にて開催されたTechLearn1999において初めて使用された．現在CAIやオンラインラーニングなど様々な学習形態が存在する． 
 
 \subsection{e-Learningの定義}
-米国の組織学習・人材開発に関する世界最大の会員制組織であるASTD(American Society for Training ＆ Development)によると「e-Learningとは,明確な学習目的のために,エレクトロニクス技術によって提供,可能とされた伝達されるあらゆるものである.」と,定義されている.
+米国の組織学習・人材開発に関する世界最大の会員制組織であるASTD(American SocietY for Training ＆ Development)によると「e-Learningとは,明確な学習目的のために,エレクトロニクス技術によって提供,可能とされた伝達されるあらゆるものである.」と,定義されている.
 
 一般的に情報技術を用いているもの全てをe-Learningと「広義」でとらえる場合と，非同期型オンライン方式を想定した「狭義」である場合とさまざまであり、一概に定義通りではない．テクノロジを活用した学習形態の幅が広がる現在の傾向では「情報技術によるコミュニケーション・ネットワークなどを活用した主体的な学習」を総称してe-Learningと定義するのが一般的である．
 
@@ -98,7 +139,9 @@ Blendes Learningは，e-Learningと集合研修を組み合わせた形態こと
 ディスカッションバーチャルクラス，チュータからのメンタリングを含む
 \end{description}
 このように様々な形態が存在するが，e-Learningに適した内容化を見極める必要である．
+\newpage
 
+%効果
 \subsection{e-Learningの効果}
 e-Learningには様々な形態が存在するが，学習形態ごとに違いがあるが，e-Learnigという大きな枠組みで考えたときのメリットとデメリットをまとめる．
 \subsubsection{e-Learningのメリット}
@@ -151,6 +194,8 @@ e-Learningを使用する環境を構築するには教材を制作するだけ�
 したがって，シミュレータ教材とは様々な条件下の現象を実際に生成することなく再現することで，対象を視認，理解させるための教材である．
 
 一般的には，航空シミュレータや音響シミュレータなど，シミュレーションの結果を体験させるためのシステムを指すことが多いが，本研究では，コンピュータ上で動作し，ブラウザ上でパラメータを変更させ，その結果を同じブラウザ上で確認できるソフトウェアのことを指す．
+
+%FTDT法
 \subsection{FDTD法}
 音場のシミュレーションは大きく分けると定常解析手法と非定常解析手法の2つに分類される．定常解析手法とは対象が定常状態に達したときの音場や位相を計算する手法である．音波は時間とともに変動するが定常状態のため時間に依存することなく空間分布が求められる．
 
@@ -160,34 +205,35 @@ e-Learningを使用する環境を構築するには教材を制作するだけ�
 
 \subsubsection{FDTD法の概要}
 FTDT(Finite Difference Time Domain)法は，1966年にK.S.Yeeによって提案された．K.S.Yeeはマクスウェル方程式が電解と磁界の連立方程式であることに着目し，中心差分に電磁界の時間及び空間配置を考案した．後に多くの科学者によって発展し，現在では電磁波の支配式を求めるだけでなく，流体力学や熱工学だけでなく波動光学にも用いられることが多くなった．
+\newpage
 
 \subsubsection{計算方法}
 物体に力を加えると物体は移動する，それと同様に空気も力が加わると動きが生じる．それはニュートンの第2方式，すなわち，運動方程式で記述される．空気には物体に動きが加わることによって生じる圧力と，運動に依存しない圧力が存在し，音響において前者を音圧，後者を大気圧と呼ぶ．音波の伝搬する空間を音場と呼ぶ．
 
-ある空間においてx，yの直交座標の寸法がそれぞれ$\Delta x$，$\Delta y$とし，密度をρ，音圧をpとし，それぞれの変異を$u_x$，$u_y$とする．$\Delta x$が微小であると仮定したときのx方向の運動方程式は
+ある空間においてX，Yの直交座標の寸法がそれぞれ$\Delta X$，$\Delta Y$とし，密度をρ，音圧を$p$とし，それぞれの変異を$u_X$，$u_Y$とする．$\Delta X$が微小であると仮定したときのX方向の運動方程式は
 \begin {eqnarray}
-\label{eq:x}
-\rho \frac {\partial t^2} {  \partial ^2 u_x } = - \frac { \partial p } { \partial x } \
+\label{eq:X}
+\rho \frac {\partial t^2} {  \partial ^2 u_x } = - \frac { \partial p } { \partial x} \
 \end{eqnarray}
-y方向も同様に
+Y方向も同様に
 \begin {eqnarray}
-\label{eq:y}
+\label{eq:Y}
 \rho \frac {\partial t^2} {  \partial ^2 u_y } = - \frac { \partial p } { \partial y } \
 \end{eqnarray}
-と表される．体積弾性率を$k[N/m^2]$としたときの音圧に関する連続方程式は
+と表される．体積弾性率を$k[\mathrm{N/m^2]}$としたときの音圧に関する連続方程式は
 \begin {eqnarray}
 \label{eq:w}
 p = -k ( \frac { \partial u _ x } { \partial x } + \frac { \partial u_y } { \partial y } \ )
 \end{eqnarray}
 となる．
-式(\ref{eq:x})，(\ref{eq:y})，(\ref{eq:w})を物理現象を方程式化した式，すなわち，支配式として音場の解析を行う.これらの式を時間微分した式を以下に示す．
+式(\ref{eq:X})，(\ref{eq:Y})，(\ref{eq:w})を物理現象を方程式化した式，すなわち，支配式として音場の解析を行う.これらの式を時間微分した式を以下に示す．
 
 \begin {eqnarray}
-\label{eq :  x-2}
+\label{eq :  X-2}
 \rho \frac{ \partial v_x } { \partial t } = - \frac { \partial p }{ \partial x }
 \end{eqnarray}
 \begin {eqnarray}
-\label{eq :y-2}
+\label{eq :Y-2}
 \rho \frac{ \partial v_y } { \partial t } = - \frac { \partial p }{ \partial y }
 \end{eqnarray}
 \begin {eqnarray}
@@ -199,30 +245,30 @@ p = -k ( \frac { \partial u _ x } { \partial x } + \frac { \partial u_y } { \par
 音圧は時間と共に連続的に変化するが，コンピュータは連続の関数を扱うことができない．したがって，空間や時間を細かく区切ることで，連続な関数に見せる必要がある，このことを離散化と呼ぶ．
 また，空間に関する区切り幅を空間離散化幅，時間に関する区切り幅は時間離散化幅と呼ぶ．区切りごとの離散的な値を参照点と呼ぶ．
 
-FTDT法における音圧の離散化は，隣り合う参照点がそれぞれ$\Delta$x，$\Delta$yの空間離散幅を持ち，$\Delta$tの時間離散幅を持つ．参照点からｘ，ｙ方向に関して何番目の音圧参照点かをi，ｊを空間ステップと呼ぶ．何番目の時間参照点であるかnを用いて表すと，$(ｎ-0.5)\Delta t[s]$であり，このnを時間ステップと呼ぶ．
+FTDT法における音圧の離散化は，隣り合う参照点がそれぞれ$\Delta$X，$\Delta$Yの空間離散幅を持ち，$\Delta$tの時間離散幅を持つ．参照点からX，Y方向に関して何番目の音圧参照点かをI，Jを空間ステップと呼ぶ．何番目の時間参照点であるか$n$を用いて表すと，$(n-0.5)\Delta t\mathrm{[s]}$であり，この$n$を時間ステップと呼ぶ．
 
-xに関する偏微分係数を
+Xに関する偏微分係数を
 \begin {eqnarray}
-\label{eq :x-3}
+\label{eq :X-3}
 - \frac { \partial p }{ \partial x }|_{ x=x_0} = \lim_{\Delta x \to 0} \frac{p|_{x=x_0+ \frac {\Delta x}{2} -p}| _{x=x_0} - \frac{ \Delta x}{2} }{ \Delta x} \verb|~| \frac{p|_{x=x_0+ \frac {\Delta x}{2} -p}| _{x=x_0} - \frac{ \Delta x}{2} }{ \Delta x}
 \end{eqnarray}
 のように近似する．
-式 \ref{eq :x-3}を式 \ref{eq : x-2}に適用し，空間ステップを$i+0.5$,jの位置，空間ステップｎの時刻としたとき
+式 \ref{eq :X-3}を式 \ref{eq : X-2}に適用し，空間ステップを$i+0.5$,jの位置，空間ステップNの時刻としたとき
 
 \begin {eqnarray}
-\label{eq:x-4}
+\label{eq:X-4}
 \rho \frac{ v_x^{n+0.5}( i+0.5, j ) -v_x^{ n-0.5 }( i+0.5,j ) }{ \Delta t } = - \frac{ p^n( i+1 ,j ) -p^n( i,j ) }{ \Delta x }
 \end{eqnarray}
 
-と近似できる．空間微分にも時間微分にも式\ref{eq :x-3}と同様の近似を用いることが可能となり，これがFTDT法の特徴の一つである．式\ref{eq :y-2}も同様に近似値を求めることができる．
+と近似できる．空間微分にも時間微分にも式\ref{eq :X-3}と同様の近似を用いることが可能となり，これがFTDT法の特徴の一つである．式\ref{eq :Y-2}も同様に近似値を求めることができる．
 
 \begin {eqnarray}
-\label{eq:y-4}
+\label{eq:Y-4}
 \rho \frac{ v_y^{n+0.5}( i+0.5, j ) -v_y^{ n-0.5 }( i+0.5,j ) }{ \Delta t } = - \frac{ p^n( i+1 ,j ) -p^n( i,j ) }{ \Delta y }
 \end{eqnarray}
 
 
-時間ステップn-0.5を過去，nを現在，n+0.5を未来の状態と考えれば，過去の$v_x$の値と現在の値から未来の$v_x$の値を求めることができる．
+時間ステップN-0.5を過去，Nを現在，N+0.5を未来の状態と考えれば，過去のX方向の速度$v_X$の値と現在の値から未来の$v_X$の値を求めることができる．
 最も時間ステップが大きい項のみ左辺に変形し，初期の粒子速度分布と音圧分布の１組がわかれば，全空間ステップにおいて変形した式を交互に計算することで求めることが可能である．初期時刻の場の業態を表す条件のことを初期条件と呼ぶ．時間が進むごとに次々と変化することを時間発展と呼び，初期状態から時間的な順序を追って場の上程を求めることを逐次計算と呼ぶ．
 
 \subsection{シミュレータ教材のメリット}
@@ -268,27 +314,31 @@ CPUは，外部から供給されるクロック信号に合わせて内部動�
 \end{figure}
 
 \subsubsection{CPUの歴史}
-パソコンが誕生する前のコンピュータは非常に高価なため，個人が所有できる代物ではなかった．しかし，1971年にインテルが4ビットCPU4004の開発に成功したことにより，以前より手軽にコンピュータを入手できるようになった．このCPUは電卓メーカーのビジコンが電卓の制御用に依頼したものである．1974年には更に性能が向上した8ビットCPUを開発した．同年MITS(マイクロ・インスツルメンテーション・テレメトリ)が本CPUを利用したコンピュータALTAIR8800を販売した．8080は汎用性が高く，様々な製品に組み込まれた．
+パソコンが誕生する前のコンピュータは非常に高価なため，個人が所有できる代物ではなかった．しかし，1971年にインテルが4ビットCPU4004の開発に成功したことにより，以前より手軽にコンピュータを入手できるようになった．1974年には更に性能が向上した8ビットCPUを開発した．同年MITS(マイクロ・インスツルメンテーション・テレメトリ)が本CPUを利用したコンピュータALTAIR8800を販売した．8080は汎用性が高く，様々な製品に組み込まれた．
 
-1978年に16ビットCPUの8086が登場した．その後，80286，80386，80486そして，Pentiumへと進化していった．これらの特徴として上位互換性があることである．つまり，以前に作られたOSやアプリケーションを動かすことができる．この一連のCPUはCISC（Complex Instruction Set Computer）タイプのCPUと分類される．CPUは，加法，減法命令，メモリの読み書きなど，各種命令を実行するのが目的である．実行可能な命令はCPUごとに異なり，CPUが実行可能な命令を全部合わせて命令セットと呼ぶ．CISCは複雑命令セットコンピュータと呼ばれ，それぞれの命令の機能が複雑かつ強力に作られている．
+1978年に16ビットCPUの8086が登場した．その後，80286，80386，80486そして，Pentiumへと進化していった．これらの特徴として上位互換性があることである．つまり，以前に作られたOSやアプリケーションを動かすことができる．この一連のCPUはCISC（CompleX Instruction Set Computer）タイプのCPUと分類される．実行可能な命令はCPUごとに異なり，CPUが実行可能な命令を全部合わせて命令セットと呼ぶ．CISCは複雑命令セットコンピュータと呼ばれ，それぞれの命令の機能が複雑かつ強力に作られている．
 
 1980年RISC(Reduced Instruction Set Computer)が発表された．RISCは命令を使用頻度の高いものに限りられ，基本設計がシンプルなのが特徴である．
-1985年にSun MicrosystemsがSPARKを開発し,1986年にはARM社から低消費電力を重視したARM2が登場した．．
 
+RISCは数多くのメーカのCPUに採用されており，1985年にSun MicrosystemsがSPARCを開発し,1986年にはARM社から低消費電力を重視したARM2とPA-RISKの最初の実装であるT1を搭載したHP 3000が登場した．その後1990年にIBMが16ビットのRISCマイクロプロセッサのPOWERを発売した.
 
-その後，パソコンにおいて従来の互換性を保持しつつ，RISC技術を取り入れたインテルが優位に立ち，ワークステーションにおいてはRISC CPUに軍配が上がった．
+一方，CISCタイプのCPUのpentiumを開発していたIntelも　RISCベースのCPUであるi960を発売していた．
 
-1990年代に入ると業務用向けに64ビットのCPU MIPS R4000が登場した．家庭用のCPUは32ビットへの以降が進んでいた．
+その後，パソコンにおいて従来CPUとのの互換性を保持しつつ，RISC技術を取り入れたインテルが優位に立ち，ワークステーションにおいてはRISC CPUに軍配が上がった．
 
-1990年代後期にはサーバ向けCPUの64ビット化が一区切りし，高クロック数，マルチプロセッシングへと変化していった．
+1990年代に入ると業務用向けに64ビットのCPU MIPS R4000が登場した．家庭用では1994年にソニーから発売されたPlayStationにR3000が搭載されるなど32ビットへの移行が進んでいた．
+
+64ビット向けワークステーションの市場はRISCが占め，32ビットの市場もAMDやCyrixなどが競い合っていた．そこでIntelは家庭用向けの64ビットCPUの命令セットを発表しが，開発が遅延したことや，POWERなどの競合プロセッサの性能向上により普及することはなかった．
 
 1993年にインテルがPentiumシリーズを発売した．初期のクロック周波数は60MHzだった．その後200MHzまで向上する．
+
+1990年代後期にはサーバ向けCPUの64ビット化が一区切りし，高クロック数，マルチプロセッシングへと変化していった．
 
 2000年に入りAMDがAthlonを発表し，最大周波数1GHzになった．同年インテルはAthlonに対抗してPentium４を発表し，動作周波数は1.3GHzまで向上した．
 
 2002年にサーバ分野でマルチコアCPUが導入された．翌年パソコン分野において64ビットのCPUが登場した．
 
-2004年に周波数の向上に限界に突き当たった．周波数を向上させることにより，消費電力が増加した．
+2004年に周波数向上の限界に突き当たった．周波数を向上させることにより，消費電力が増加した．
 そこでインテルは2005年に１つのパッケージに2つのCPUコアを実装したCPUを開発，Pentium Dの登場である．このCPUがマルチコア化への先駆けとなった．同年AMDからマルチコアのAthlon 64 X2が発表された．AMDはクロック数が1GHzへ到達した時点で処理効率を重視したCPUを展開した事により，デュアルコアへの拡張を意識した設計を可能とした．この頃から消費電力あたりの性能が重視されるようになった．
 サーバ向けのCPUではワンチップで数十スレッドを実行するCPUが現れた．相対的に低いクロック数で性能を引き出しやすいSIMD(single instruction multiple data)の性能に重点が置かれた．
 
@@ -297,17 +347,8 @@ CPUは，外部から供給されるクロック信号に合わせて内部動�
 パイプライン
 \end {Large}
 
-CPUで処理を行う時プログラムはフェッチ，読み込み，実行，メモリに書き込みを繰り返している．処理を行う時，これらを順番に実行するが，同時に一つの処理しか行えない．そこでステージ数を増やすことで複数の命令を実行可能とした．Pentium4ではステージを増やし，命令の長さを減らしたことで高クロック化させた．
+CPUで処理を行う時プログラムはフェッチ，読み込み，実行，メモリに書き込みを繰り返している．処理を行う時，これらを順番に実行するが，同時に一つの処理しか行えない．そこでステージ数を増やすことで複数の命令を実行可能とした．Pentium4ではステージを増やすことで高クロック化させた．
 
-%ここに図を入れる
-
-%\begin{Large}
-%MMX
-%\end {Large}
-%
-%コンピュータ内で処理されているフルカラー処理は，24ビットで行われている．24ビットを処理するには8ビットを3回行うか，8ビットをパディングして32ビットとしてデータを処理する．各要素をバラバラに処理する場合3回演算を行うため非常に時間がかかった．
-%
-%そこで64ビットレジスタを32ビットを2つ，16ビットを4つとみなし，それらの領域をまとめて演算するという方式が用いられた．32ビットを2つ処理するが，同じ処理を2回行うわけではなく，まとめて処理を行う．この処理をMMXと呼び，現在ではSSEと呼ばれている．
 \begin{Large}
 SIMD
 \end{Large}
@@ -339,9 +380,14 @@ GPUは画像処理を行うことを目的としている並列演算ハード�
 1970年代に入り大型のコンピュータのサイズダウンが行われ，ミニコンという種類が登場，低価格帯のCPUによる一般向けのコンピュータ，パーソナルコンピュータ（パソコン）が登場した．世界最初のパソコンと呼ばれているアルテアにはモニタがなく，コンピュータの状態をLEDで表示するにとどまった．モニタに対応したのアップルのApple\UTF{2160}，Apple\UTF{2161}だった．
 当時のパソコンには，メモリ上にビデオ表示用の領域があり，後にVideo RAM(VRAM)と呼ばれるようになった．VRAMの領域を書き変えることで画面に出力ができた．
 
-1990年代に入るとパソコンでもGUIの環境が整ってきた．GUIが発展すると以前の640×400ドットより広い描画範囲を必要とした．そのため，ユーザの間ではビデオカードを用いて描画領域を拡張させる動きがあった．Windows95が発売のことには，ビデオカードが含まれるパソコンが標準となった．
+1990年代に入るとパソコンでもGUIの環境が整ってきた．GUIが発展すると以前の640×400ドットより広い描画範囲を必要とした．そのため，ユーザの間ではビデオカードを用いて描画領域を拡張させる動きがあった．Windows95が発売のころには，ビデオカードが含まれるパソコンが標準となった．
 
-1999年にNVIDIAからGeForce256が発売された．GeForce256の特徴は3D演算用のハードウエアが搭載されたことである．それまで3D専用ワークステーションでしか行えなかった分野がパソコンでも行えるようになった．CPUが通常の演算を行うことから，グラフィックの演算処理を行うハードウエアをGPUと呼ぶとNVIDIAが提案，その呼び名が定着した．
+1995年に3dfXから3Dの処理に特化したVoodooが発売された．当時は家庭用のパソコンとアーケードゲームのグラフィックに差が存在したが，Voodooの登場により家庭用のパソコンもアーケードゲームに匹敵する品質を実現させた．
+
+1997年にはCYriXからオーディオチップとグラフィックチップが1つのチップセットに統合されたMesiaGXが発売されるなど，複数のチップを統合した製品が登場する．グラフィックス機能が貧弱であったり，低価格帯をターゲットとしてたため利用できるCPUの性能にも限度があり，普及しなかった．
+しかし，1999年にIntelから発表されたIntel 810チップセットは，2D描画性能は十分な性能を有したため，オフィス処理やブラウジングなどには十分な性能であった．また，同設計で多様なCPUを採用した製品を開発しやすかった．グラフィックカードが不要なことから小型なパソコンの設計が可能となり，グラフィックチップが組み込まれたチップセットが普及した．
+
+1999年にNVIDIAから高い3Dの演算能力を有するGeForce256が発売された．GeForce256の特徴は3D演算用のハードウエアが搭載されたことである．それまで3D専用ワークステーションでしか行えなかった分野がパソコンでも行えるようになった．CPUが通常の演算を行うことから，グラフィックの演算処理を行うハードウエアをGPUと呼ぶとNVIDIAが提案，その呼び名が定着した．
 
 2001年にはGPUの固定機能パイプラインであるシェーダ処理がプログラム可能になった．しかし，アセンブラが基本として扱われたため敷居は非常に高かった．その後，シェーダのプログラムを書くための高級言語が登場，3Dグラフィック以外の演算も行われるようになった．演算ユニットを汎用化させる統語柄シェーダーアーキテクチャが登場，GPUにおける汎用演算GPGPUの発展，普及へとつながっていった．
 
@@ -350,11 +396,81 @@ GPUは画像処理を行うことを目的としている並列演算ハード�
 \subsubsection{GPUの処理方法}
 GPUを構成するプロセッサの最小単位はスカラプロセッサである．スカラプロセッサはCPUと比較して，算術計算やロジック処理等，限られた機能しか持ち合わせていない．スカラプロセッサはCPUのプロセッサと違い命令デコードが存在しない．
 
-ストリーミングマルチプロセッサは複数のスカラプロセッサを内蔵させたプロセッサである．従来は8個であったが，Fermiの登場により数が一定ではなくなった．ストリーミングマルチプロセッサには複数のスカラプロセッサを制御するユニットが搭載されている．また，命令デコード機能が含まれている．そのときマルチプロセッサに伝達される内容は同じ内容となっている．
+ストリーミングマルチプロセッサは複数のスカラプロセッサを内蔵させたプロセッサである．従来は8個であったが，現在では数が一定ではなくなった．ストリーミングマルチプロセッサには複数のスカラプロセッサを制御するユニットが搭載されている．また，命令デコード機能が含まれている．そのときマルチプロセッサに伝達される内容は同じ内容となっている．
 
-スカラプロセッサ上で動作するプログラムの単位として，スレッドがある．スレッドは32スレッドごとに動作しこの数を1つの単位とみなすものをワープとよぶ．
+スカラプロセッサ上で動作するプログラムの単位として，スレッドがある．スレッドは32スレッドごとに動作する．
 GPUは1つの命令で複数のスカラプロセッサが動作するが，開始のタイミングは同時でなく、プログラムごとに1クロックのズレが生じる非同期の動作である．したがって，プログラム上で同期を行うことが重要となる．
+
+\subsubsection{プログラマブルシェーダー}
+プログラマブルシェーダーはMicrosoftが開発したゲーム及びマルチメディア処理用のAPIであるMicrosoft DirectX 8から導入された技術である．CGにおいて光の当たり具合などを調整して各画素の色を変化，陰影をつける処理であるシェーディングをGPU上のプログラムとしてリアルタイムに実行する技術である．
+
+DirectX 7までは内部で行われた描画処理の順番や処理は固定であったが，DirectX8移行はプログラムで自由に設定を変更できるようにした．
+
+プログラムでシェーディングが可能になったことにより，ハードメーカーが開発されるグラフィック表現に対応したハードウェアを逐一実装する必要がなくなった．また，プログラムを利用することで画面効果を試験的にGPU上で再現することが容易になったことにより表現力が向上した．
+
+プログラマブルシェーダー向けの言語のことをシェーディング言語と呼ぶ．
+
+主なシェーディング言語を以下に示す．
+\begin{description}
+\item {GLSL}\mbox{}\\ 
+GLSLはOpenGL  Shading Languageの略称である．GLSLはC言語をベースとして開発された言語である．2003年にOpenGL1.5の拡張機能として導入され，翌2004年にOpenGL ARBによって策定され,OpenGL2.0に導入されることとなった．
+た．
+
+\item	{DirectX}\mbox{}\\ 
+DirectXはMicrosoftが開発したゲーム・マルチメディア処理用のAPIである．
+1995年にWindows 95用にWindows Game SDKとして登場したのが始まりである．定期的にバージョンアップされており現在は2015年にリリースされたDirectX 12が最新である．
+
+\item	{CUDA }\mbox{}\\ 
+ 2006年にNVIDIAから発表された並列コンピューティングアーキテクチャである．CUDA(Compute Unified Device Architecture)はそれまで画像処理や出力が主な目的だったGPUに汎用処理をさせることを目的に開発された．専用のコンパイラやAPIなどが提供されている．
+\end{description}
 \newpage
+
+%HTML
+\section{HTML}
+HTMLとはHYper TeXt Markup Languegeの略称であり，ウェブ上のドキュメントを記述するためのマークアップ言語である．HTMLで制作されたドキュメントは異なるドキュメントへのハイパーリンクを設定でき，リストや表などの作成を行うことができる．また，CSSやJavaScriptなどを別ファイルから読み出すことが可能である．
+\subsection{特徴}
+HTMLの特徴はハイパーテキストを利用した相互間文章参照のフレームワークである．文章中にURLを用いて他の文章へリンクを記載することで，指定された他の文章を表示させることが可能である．
+
+HTMLはマークアップ言語であるが，マークアップとは文章を要素で括り，意味付けを行うことである．それにより文字の大きさや色などの変更，表示を可能とするのである．文字だけでなく，画像や音を添付することができる．
+
+\subsection{HTML5}
+HTML5は，以前標準となっていたHTML4やXHTML1.Xの後継にあたる仕様である．以前はマークアップの仕様が主だが，HTML5からDOMやAPIの仕様が多く盛り込まれた．
+
+\subsection{DOM}
+DOMはDocument Object Modelの略称である．DOMはWeb技術の標準化を行う団体であるW3C(World Wide Web Consortium)から勧告されているHTMLやXML(EXtensible Markup Language)ドキュメントのためのAPIである.
+DOMはドキュメントを階層構造で表しDOMによって表された階層構造をDOMツリーと呼ぶ．また，DOMはWebページとJavaScriptなどのプログラミング言語を繋ぐ役割を持つ．
+
+プログラム\ref{eX}のDOMツリーを図\ref{fig:DOM}に示す．
+
+\begin{lstlisting}[frame=single, caption=HTMLの例,label=eX]
+<!DOCTYPE HTML>
+<html lang="ja-JP">
+<head>
+  <meta charset="UTF-8">
+  <title>1次元の音波</title>
+  <script src="manY_source.js"></script>
+</head>
+<bodY>
+  <canvas class="mYCanvas" id="graph0" width="512" height="512"></canvas>
+
+</bodY>
+</html>
+  \end{lstlisting}
+  
+\begin{figure}[htbp]
+ \begin{center}
+  \includegraphics[width=100mm]{DOM.pdf}
+ \end{center}
+ \caption{DOMツリーのイメージ}
+ \label{fig:DOM}
+\end{figure}
+
+\subsection{Canvas}
+canvasタグとは，HTML5で新しく追加された要素の一つであり，図を描画するために策定された仕様である．従来HTML上で図を表現するには画像に置き換えるか，条件に応じて表示する図を変化させる必要があった．アニメーションを実現するにはFlash やJavaアプレットが使用されてきた．
+
+それに対し，canvasタグはHTML５に対応するブラウザ内でプラグインを利用することなく，JavaScriptベースで図を描画することが可能である．
+
+
 
 %プログラミング言語
 \section{プログラミング言語}
@@ -370,18 +486,6 @@ GPUは1つの命令で複数のスカラプロセッサが動作するが，開�
 
 プログラムの構築方法によって，プログラミング言語を分類することができる．手続きを順番に記述する手続き型言語，関連するデータと手続きを１つのまとまりとして捉えるオブジェクト指向言語，プログラムを関数の組み合わせで実行する関数型言語，データ間の関係や理論を記述する記述型言語に分けられる．
 
-%HTML
-\subsection{HTML}
-HTMLとはHyper Text Markup Languegeの略称であり，ウェブ上のドキュメントを記述するためのマークアップ言語である．HTMLで制作されたドキュメントは異なるドキュメントへのハイパーリンクを設定でき，リストや表などの作成を行うことができる．また，CSSやJavaScriptなどを別ファイルから読み出すことが可能である．
-\subsubsection{特徴}
-HTMLの特徴はハイパーテキストを利用した相互間文章参照のフレームワークである．文章中にURLを用いて他の文章へリンクを記載することで，指定された他の文章を表示させることが可能である．
-
-HTMLはマークアップ言語であるが，マークアップとは文章を要素で括り，意味付けを行うことである．それにより文字の大きさや色などの変更，表示を可能とするのである．文字だけでなく，画像や音を添付することができる．
-
-\subsubsection{HTML5}
-HTML5は，以前標準となっていたHTML4やXHTML1.xの後継にあたる仕様である．以前はマークアップの仕様が主だが，HTML5からDOMやAPIのしようが多く盛り込まれた．
-
-\subsection{DOM}
 %JavaScript
 \subsection{JavaScript}
 本研究ではJavaScriptを用いた開発を行った．そこで本章ではJavaScriptの特徴と歴史について紹介する．
@@ -403,7 +507,7 @@ JavaScriptの中核となる技術は，ECMAScriptによって規定されてい
 
 Webブラウザで動作するJavaScriptをクライアントJavaSctiptという．ECMAScriptによって規定されたコア言語と，Webブラウザ特有のAPI(Application Program Interface)から構成されている．また，HTML5で規定されているAPIで様々なAPIを利用することができる．
 
-Webサーバーでは，PHPやRubyなどのプログラミング言語が広く利用されているが，近年サーバーサイドJavaScriptの利用も増加してきた．サーバーサイドJavaScriptの実行環境にはNode.jsやRhinoなどがある．
+Webサーバーでは，PHPやRubYなどのプログラミング言語が広く利用されているが，近年サーバーサイドJavaScriptの利用も増加してきた．サーバーサイドJavaScriptの実行環境にはNode.jsやRhinoなどがある．
 
 \subsubsection{ECMAScript2018の新機能}
 2015年に公表されたECMAScript6から毎年使用を改定することとなったため，ECMAScript2015とも呼ばれ，現在はECMAScript2018が最新である．そこで定義された新機能を表\ref{tab:EC2018}に示す．
@@ -413,21 +517,47 @@ Webサーバーでは，PHPやRubyなどのプログラミング言語が広く�
 \caption{ECMAS2018にて改定された主な内容}
 	\begin{tabular} {| c | l |} \hline
 	オブジェクトのRest/Spread プロパティ &  オブジェクト内に別のオブジェクトを展開する構文を実装\\ \hline
-	Promise.prototype.finally &  プロミスの成否に関わらず処理を行うメソッド\\ \hline
+	Promise.prototYpe.finallY &  プロミスの成否に関わらず処理を行うメソッド\\ \hline
 	テンプレートリテラルの改修 &  タグ付きのテンプレートリレラルの場合エラーが出ない\\ \hline
 	正規表現 & sオプションを付けることで改行文字に対応など \\ \hline
-	Asynchronous Iterators & 非同期のイテレータやジェネレータが利用可能 \\ \hline
+	AsYnchronous Iterators & 非同期のイテレータやジェネレータが利用可能 \\ \hline
 	\end{tabular} 
 	\label{tab:EC2018}
 \end{table}
 
 \subsubsection{JavaScriptの歴史}
-JavaScriptは，1995年にNetscape Communications社のBrendan Eichによって開発されNetscape Navigator 2.0にて実装された．1996年，Microsoft社のInternet Exploer 3.0に搭載され急速に普及した．
+JavaScriptは，1995年にNetscape Communications社のBrendan Eichによって開発されNetscape Navigator 2.0にて実装された．1996年，Microsoft社のInternet EXploer 3.0に搭載され急速に普及した．
 
 JavaScriptの黎明期には各々が独自の拡張を行ったため，ブラウザ間での互換性が低く，各ブラウザに対応したコードを書く必要があった．1997年からECMAScriptによる標準化が進められ，各ブラウザはその使用を実装したため，ブラウザ間の互換性の問題は解消している．
 
-JavaScript本来の言語仕様を解説した本がなかったことや，当時のブラウゼ機能の処理が低いことから，プログラマが本気で取り組む言語ではないと考えられていた．しかし，Ajaxという非同期通信技術を使い，デスクトップアプリケーションと遜色ないソフトウェアの登場によりその認識が薄れ，理解されるようになった．2008年からHTML 5.0の策定が始まり，JavaScriptによるWebアプリケーションを作るための様々なAPIが規定され，ブラウザの高品質化が進み，JavaScriptが普及していった．
+JavaScript本来の言語仕様を解説した本がなかったことや，当時のブラウゼ機能の処理が低いことから，プログラマが本気で取り組む言語ではないと考えられていた．しかし，AjaXという非同期通信技術を使い，デスクトップアプリケーションと遜色ないソフトウェアの登場によりその認識が薄れ，理解されるようになった．2008年からHTML 5.0の策定が始まり，JavaScriptによるWebアプリケーションを作るための様々なAPIが規定され，ブラウザの高品質化が進み，JavaScriptが普及していった．
 
+\subsubsection{実行方法}
+
+\begin{Large}
+setInterval()
+\end{Large}
+
+setInterval()は一定時間間隔を開けてコードを繰り返し行うメソッドである．経過する時間はミリ秒[ms]で指定される．
+
+setInterval()は前の処理が完了したか確認せずに次の処理を開始するため重たい処理を行うため予期せぬ動作をする場合がある．
+\begin{lstlisting}[frame=single]
+setInterval( 関数 , 遅延時間指定 [ , 引数 ] )
+ \end{lstlisting}
+
+
+\begin{Large}
+requestAnimationframe()
+\end{Large}
+
+requestAnimationFrame()はブラウザにアニメーションを行うことを知らせ，指定した関数を呼び出してアニメーションを更新するメソッドである．
+
+画面上でアニメーションの更新準備が整ったときに呼び出される．つまり，ブラウザの再描画が実行される前に呼び出されることを要求する．通常毎秒60回だが，W3Cの勧告に従い，ディスプレイのリフレッシュレートに従う．そのため，タブに隠れたりすると描画の回数が少なくなる．
+
+\begin{lstlisting}[frame=single]
+requestAnimationFrame( 関数 )
+ \end{lstlisting}
+ 
 %WebWorker
 \subsection{WebWorker}
 WebWorkerとはHTML 5.0で規定されたAPIの一つである．JavaScriptはシングルスレッドの言語のため処理が実行されているときは，他の処理は保留される．WebWorkerは特定の処理をマルチスレッドで実行するAPIである．これによって高負荷の処理によって処理が中断される問題が解消される．WebWorkerで並列に実行されるスレッドをワーカーと呼び，メインスレッドとワーカーとは異なるグローバルオブジェクトを持ち互いのグローバルオブジェクトを参照することはできない．
@@ -471,7 +601,7 @@ OffscreenCanvasとは，従来行えなかったWebWorkerでの描画処理を�
 
 従来はJavaScriptで動的に描画を行うかメインとなるスレッドで描画するしか方法がなかった．WebWorkerの登場により，別スレッドに計算処理を分離することで処理を高速化させていた．しかし，メインスレッドの描画速度は上がらないため，3Dなど描画対象が多くなるとイベントが大量に発生し，他の処理が中断し結果として動作が遅いということがあった．しかし，OffscreenCanvasの登場でそれらの現象の改善が期待されるようになった．また，OffscreenCanvasは処理と描画を同一のスレッドで行うことで，WebWorkerでは処理後に必要としたメインへデータの送信が要らなくなった．
 
-Webブラウザにおいて本機能が標準で行えるようになったのは2018年9月にリリースされたChrome 69からであり，対応しているブラウザは，2019年1月の時点でChromeの他にAndroid Brower，Chrome for Android，Firefox，OperaとOpera for AndroidがOffscreenCanvasに対応している．
+Webブラウザにおいて本機能が標準で行えるようになったのは2018年9月にリリースされたChrome 69からであり，対応しているブラウザは，2019年1月の時点でChromeの他にChrome for Android，OperaとOpera for AndroidがOffscreenCanvasに対応している．また，実験的かつ，機能が限定的ではあるが，FirefoX，FirefoX for AndroidとAndroid Brower も対応している．
 
 \subsubsection{OffscreenCanvasの実装法方}
 まず，WebWorkerと同様にワーカーを定義する必要がある．
@@ -498,28 +628,46 @@ worker.postMessage({canvas: offscreenCanvas}, [offscreenCanvas]);
 これら一連の処理を行った後は，ワーカーであることを意識せずに，演算，描画を行う事ができるため，1つのファイルでrequestAnimationFrameやsetIntervalを用いたアニメーションを制作することが可能である．
 また，HTMLのcanvas要素で使用されるメッソドを用いることは可能なため，従来のキャンバスの操作と変わらない操作性を保持している．
 
-また，ワーカーと同様にwindowオブジェクト，DocumentオブジェクトやDOMの操作を行うことができない．
 \newpage
 %実装したシミュレータ
 \section{開発したシミュレータ}
+\label{sec:kaihatsu}
 本章では実際に開発したシミュレータについて論じる．
 \subsection{開発したシミュレータ}
 本研究では昨年度本学卒業論文である「GPU利用によるシミュレータ教材の演算速度」で用いられたソースコードを拡張することで開発を行う．
 
 \subsection{開発したシミュレータ教材}
-図\ref{fig:}は複数の音源から発せられる音場を可視化するシミュレータ教材である．
+図\ref{fig:sim}は複数の音源から発せられる音場を可視化するシミュレータ教材である．
 昨年度本学の卒業研究である「GPU利用によるシミュレータ教材の演算速度」を基に開発を行った．
 
 本研究ではWorkerなどを使用せず，素のJavaScriptで開発を行った手法を手法1とし,シェーダでGPUに移植を行った手法を手法2とする．WebWorkerを利用し開発を行った手法を処理3とする．OffscreenCanvasを利用し開発を行う手法を手法4とする．
-%画像
 
-手法3，手法4は図\ref{}の様にCanvas要素を左右に2分割することで負荷を分散させた．
+図\ref{fig:sim}は開発を行ったシミュレータの画像である．手法3，手法4は開発したシミュレータ教材のCanvas要素を2分割した.
+
+\begin{figure}[htbp]
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[width=50mm]{sim.pdf}
+  \end{center}
+  \caption{開発したシミュレータ}
+  \label{fig:sim}
+ \end{minipage}
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[width=50mm]{kYouzai.pdf}
+  \end{center}
+  \caption{開発したシミュレータ教材}
+  \label{fig:sim2}
+ \end{minipage}
+\end{figure}
+
+図\ref{fig:sim2}は手法４をリアルタイムで数値の変更を可能としたシミュレータ教材である．
 
 手法1ではHTMLからCanvas要素を受信し，音場の計算と描画を行った．
 手法3では手法1の音場の計算をサブスレッドで行い描画をメインスレッドで行った．
 手法4では手法1の音場の計算と描画をサブスレッドで行うことで，演算と描画2つの負荷を分散させた．
 
-\subsection{実験方法}
+\subsection{計測方法}
 本章では計測を実施した環境とその方法を記載する．
 \subsubsection{計測環境}
 本研究では以下のスペックのパソコンを用いて計測を行った．
@@ -527,7 +675,7 @@ worker.postMessage({canvas: offscreenCanvas}, [offscreenCanvas]);
 \centering
 \caption{計測環境}
 	\begin{tabular} {| c | c |} \hline
-	OS & macOS High Sierra(10.13.6) \\ \hline
+	OS & macOS High Sierra(10.13.6) \\ \hline 
 	メモリ & 32GB \\ \hline
 	CPU & Intel Core i5 3.2GHz (４コア) \\ \hline
 	GPU & NVIDIA GeForce GT 775M \\ \hline
@@ -536,59 +684,140 @@ worker.postMessage({canvas: offscreenCanvas}, [offscreenCanvas]);
 	\label{tab:tab1}
 \end{table}
 
-\subsection{計測方法}
+\subsubsection{計測方法}
 本研究ではそれぞれ1,000回計算するごとに費やした時間を計測，10,000回計算を行い，1,000ごとの時間と，10,000回計算を行うのに有した時間を測定した．
 
 処理に費やした時間の比を式（\ref{eq:cal}）に当てはめて求めた．
 
-WebWorkerとOffscreenCanvasはキャンバスを分割し表示させているため，左右で計測時間が異なる．したがって，WebWorkerとOffscreenCanvasはより計測時間を必要としたキャンバスを参照する．
+WebWorkerとOffscreenCanvasはキャンバスを分割し表示させているため，左右で計測時間が異なる．したがって，WebWorkerとOffscreenCanvasはより計測時間を費やしたキャンバスを参照する．
 \begin{equation}
- 時間比 = \frac { 各手法10,000回の処理速度 \[s]} { 基準10,000回の処理速度[s] } 
+ 時間比 = \frac { 各手法が10,000回演算するのに費やした時間 [s]} { 手法1が10,000回演算するのに費やした時間[s] } 
 \label{eq:cal}
 \end{equation}
 
-\ref{zu}は開発を行ったシミュレータの
-%シミュレータの図
+手法3，手法4はCanvas要素を分割したため，左右の演算速度の差の計測を行う．
 \newpage
 
+%結果
 \section{実験結果}
-本章では本研究で得られた結果を示す．
-\subsection{演算速度}
+本章では\ref{sec:kaihatsu}章で示した計測方法を基に得られた結果を記す．
+
+本章では演算時間の他に手法3，手法4のCanvasごとに生じた演算時間の差や演算回数による演算時間の変化を述べる．また，手法ごとに生じたソースコードの追加箇所についても言及する．
+\subsection{演算時間}
 \label{sec:sokudo}
-各手法はsetIntervalを用いて実行した．各手法10,000回演算実行するのに費やした時間と手法1を基準とした時間比を図\ref{fig:%図}に示す．
-%図
-図\ref{fig:図}より，手法2～4全て手法1を上回る処理速度を実現できた．ディスプレイのリフレッシュレートより高い処理速度を実現できたため，速度面において処理2~3は有用であると言える．
+setInterval()を用いて実行した．各手法10,000回演算実行するのに費やした時間と時間比を表\ref{tab:hi}に示す．
+
+\begin{table}[htb]
+\centering
+\caption{演算時間と時間比}
+\label{tab:hi}
+  \begin{tabular}{| c | c | c |} \hline
+    手法 & 演算時間[s] & 時間比 \\ \hline \hline
+    手法1 & 206.6 & 1 \\ \hline
+    手法2 & 128.7 & 0.622 \\ \hline
+    手法3 & 98.1 &  0.796 \\ \hline
+    手法4 & 164.4 & 0.475 \\ \hline
+  \end{tabular}
+\end{table}
+
+
+図\ref{tab:hi}より，手法2\UTF{FF5E}4全て手法1を上回る処理速度を実現できた．ディスプレイのリフレッシュレートより高い処理速度を実現できたため，速度面において有用であると言える．
 
 \subsection{Canvas要素の分離による左右の処理速度の差}
-\labal{sec:sa}
+\label{sec:sa}
 \ref{sec:sokudo}により速度面の有用性は証明できた．しかし，手法3と手法4においてはCanvas要素を2分割しているため，左右のズレが大きくてはシミュレータとしての体を成すことはできない．したがって，本章ではキャンパスを分割したことによるズレの検証を行う．
 検証方法は各手法10,000回計測した際に費やした時間をそれぞれのキャンバスごとに計測し，左右のズレを検証する．
-%図
-図\ref{fig:図}より手法4の差は大きいと言える．本研究では生産性の検証を主としているため，手法4においては各サブスレッドごとに同期処理を行わなかった．描画結果をメインスレッドに送り同期処理を行うことで差を埋めることができると考える．また，本研究ではsetIntervalを実行に用いたが，requestAnimationFrameを用いることにより手軽に向上できると考える．
+
+\begin{table}[htb]
+\centering
+\caption{手法3,手法4のCanvasごとの演算時間の差}
+\label{tab:sa}
+  \begin{tabular}{| c || c | c | c | c |} \hline
+    手法 & 手法3(左) & 手法3(右) & 手法4 (左) & 手法4(右) \\ \hline
+    演算時間[s] & 164.4 & 164.4 & 98.0 & 97.3 \\ \hline
+     差[s] & \multicolumn{2}{ c|}{0} & \multicolumn{2}{c|}{0.7}  \\ \hline
+  \end{tabular}
+\end{table}
+
+
+表\ref{tab:sa}より手法4の差は大きいと言える．本研究では生産性の検証を主としているため，手法4においては各サブスレッドごとに同期処理を行わなかったことが原因であると推測する．
+
+したがって，描画結果をメインスレッドに送り同期処理を行うことで差を埋めることができると考える．
+また，本研究ではsetIntervalを実行に用いたが，requestAnimationFrameを用いることによりCanvasごとの演算時間の差を埋めることができると考える．
+
+\subsection{1000回ごとの演算時間}
+図\ref{fig:henka}に各種法が1000回の演算に費やした時間の変化を示す．
+
+各手法に演算回数による処理時間の変化は見られなかった．
+
+\begin{figure}[htbp]
+ \begin{center}
+  \includegraphics[width=100mm]{henka.pdf}
+ \end{center}
+ \caption{演算回数によるパフォーマンスの変化}
+ \label{fig:henka}
+\end{figure}
+\newpage
 
 \subsection{各手法による実装の違い}
 本章では各手法の生産性の観点からOffscreencanvasの有用性の検証を行う．
+\subsubsection{手法１}
 
-図\ref{fig:手法1}は手法1のフローチャートである．
-%手法1の図
+図\ref{fig:cpu}は手法1のフローチャートである．HTMLからCanvas要素を取得した後，演算部分では，複数の音源から発せられる音の音場の計算を行う．計算は1フレーム，Canvasのサイズだけ行う．
+演算で得られた情報を基に描画を行う．この手順を繰り返し行うことでアニメーションさせている．
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[width=40mm]{cpu_chart.pdf}
+ \end{center}
+ \caption{手法1のフローチャート}
+ \label{fig:cpu}
+\end{figure}
 
-図\ref{fig:手法3}は手法3のフローチャートである．WebWorkerでは描画を行うことができないため図\ref{fig:図1}の演算と描画の処理が分断される．
+\subsubsection{手法３}
+図\ref{fig:worker}は手法3のフローチャートである．WebWorkerでは描画を行うことができないため図\ref{fig:cpu}の演算と描画の処理が分断される．
 
 したがってまず，サブスレッドへCanvas要素などのパラメータを送信を行う．その後，サブスレッドで受信したデータを基に演算を行い結果を再度メインスレッドへ送信する．最後にメインスレッドでは各サブスレッドの同期を行い，描画を実行する．この処理を繰り返し行うことで，処理を継続することが可能となった．
 ソースコードは処理と描画が分断されるため，存在していたコードを分ける必要があった．
-%手法3の図
 
-図\ref{fig:手法4}は手法4のフローチャートである．OffscreenCanvasはWebWorkerを利用し，従来サブワーカーでは行えなかった描画を可能とするAPIである．
+%手法3の図
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[width=70mm]{worker_chart2.pdf}
+ \end{center}
+ \caption{手法3のフローチャート}
+ \label{fig:worker}
+\end{figure}
+
+\subsubsection{手法４}
+図\ref{fig:offsc}は手法4のフローチャートである．OffscreenCanvasはWebWorkerを利用し，従来サブワーカーでは行えなかった描画を可能とするAPIである．
 
 したがって，手法3と同様にサブスレッドへCanvas要素などのパラメータの送信を行う．サブスレッド内で描画まで行えるため手法1の演算の結果をメインスレッドへ送る必要がなかった．サブワーカー内で演算と描画が行えるため，処理1を大きく変更することなく移植を可能とした．
 %手法4の図
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[width=80mm]{offsc_chart2.pdf}
+ \end{center}
+ \caption{手法4のフローチャート}
+ \label{fig:offsc}
+\end{figure}
+
 \newpage
 
 
 \section{結言}
-本研究ではシミュレータ教材の開発手法として生産性と処理速度の観点からOffscreenCanvasの提案を行った．
-今回，OffscreenCanvasは十分な処理速度と生産性の両立を可能とする手法でることが証明できた．
-今後はOffscreenCanvasを用いたシミュレータ教材の増加が見込まれると考える．
+近年のe-Learningの普及により高い処理速度と高い生産性を両立させた開発手法が求められている．
+
+本研究室ではシミュレータ教材を対象とした高速化手法の提案を行っている．それらの研究では処理速度の向上は得られたが，設計やデバックなど実装が容易でなかった．
+
+そこでWebWorkerを利用しながら描画もサブスレッドで完結されることのできるOffscreenCanvasを用いた開発を行い処理速度と生産性の観点から検証を行った．
+
+OffscreenCanvasを利用することで高い処理速度が得られる一方で，新たに書き足す必要性があることがわかった．
+
+既存のシミュレータ教材へOffscreenCanvasを適用する場合は一連の処理をサブスレッドに移植するだけで実装が可能なため，ソースコードを大きく変更する必要がなく，実装が容易であると結論づける．
+
+欠点として対応しているブラウザの
+
+今後はOffscreenCanvasに対応したブラウザが増加するにあたり，OffscreenCanvasを利用したシミュレータ教材が増加していくことが考えられる．
 \newpage
 
 \section{謝辞}
@@ -597,893 +826,59 @@ WebWorkerとOffscreenCanvasはキャンバスを分割し表示させている�
 
 \section{参考文献}
 \begin{thebibliography}{99}
-\bibitem{book}\url{https://arui.tech/es2018-new-features/}
+\bibitem{book} ecma INTERNATIONAL:"EECMAScript\UTF{00AE}2018 Language Specification\" , url{https://www.ecma-international.org/ecma-262/9.0/indeX.html}(参照:2019年1月15日)
 \bibitem{book}磯 博:"プログラミングの教養から言語仕様，開発技法までが正しく身につく徹底マスターJavaScriptの教科書",SB Creative,2017年3月25日
 \bibitem{book}大島 篤:"見てわかるパソコン解体新書",SB Creative,2001年4月30日
 \bibitem{book}大島 篤:"見てわかるパソコン解体新書 vol3",SB Creative,2001年4月30日
-\bibitem{book}\url{https://it-words.jp/w/SIMD.html}
+\bibitem{book}豊田　政弘 :"音響サイエンスシリーズ１４　FTDT法で見る音の世界",コロナ社,2015年12月16日
+\bibitem{book}Hisa Ando:"GPUを支える技術　超並列ハードウェアの快進撃[技術基礎]",技術評論社,2017年7月13日
+\bibitem{book}小山田　耕二，岡田　賢治:"CUDA高速GPUプログラミング入門",秀和システム,2010年3月25日
+\bibitem{book}菅原　愛子:"Web Workerを利用したシミュレータ教材の開発",平成25年度卒業論文,2014年1月30日
+\bibitem{book}中嶋　大貴:"GPU利用によるシミュレータ教材の演算速度",平成29年度卒業論文,2018年1月29日
 \end{thebibliography}
 \newpage
 
 %プログラム
-\pagenumbering{Roman}
-\setcounter{page}{1} 
 \section{付録　制作したプログラム}
-
-\lstset{
-    numbers=left,
-    tabsize=2
-}
-%HTML
-\begin{lstlisting}
-<!DOCTYPE HTML>
-<html lang="ja-JP">
-<head>
-  <meta charset="UTF-8">
-  <title>1次元の音波</title>
-  <script src="many_source.js"></script>
-</head>
-<body>
-  <canvas class="myCanvas" id="graph0" width="512" height="512"></canvas>
-
-</body>
-</html>
-
-\end{lstlisting}
+\subsection{手法1}
+\lstinputlisting[caption=CPU.html] {01-program/01/CPU.html}
+\newpage
+\lstinputlisting[caption=manY-source.js] {01-program/01/manY-source.js}
 \newpage
 
-%HTML JS
-\begin{lstlisting}
-var theta = 0;
-var i = 0;
-
-
-function calc0() {
-  console.time('timer1');
-  let canvas = document.getElementById('graph0');
-  let ctx = canvas.getContext( "2d" );
-
-
-  let lambda = 8.6; // 波長は8.6mm （音で言えば40kHz）
-  let c_size = 512; // canvasのサイズ（単位：ピクセル）
-  let w_number = 16; // フィールド内の波の数
-  let s_number = 2 // 音源は2つ　parseIntで文字列を整数型にしている
-  let interval = 16// 音源間隔（単位：ピクセル）
-
-  ctx.clearRect( 0, 0, 512, 512);
-
-  let imageData = ctx.createImageData( 512, 512 );
-  let pixelData = imageData.data;
-
-
-  let k = 2.0 * Math.PI / lambda;
-  let m_size = ( lambda * w_number ) / c_size;
-
-  i++;
-
-  for( let y=0; y<c_size; y++ ) {
-    for( let x=0; x<c_size; x++ ) {
-      let sx = -interval * s_number/2.0 + interval/2.0;
-      //if( sx!=-8 ) console.log("Err("+x+","+y+")");
-      let amp = 0;
-      for( let n=0; n<s_number; n++ ) {
-        let px = c_size / 2.0 - x - sx;
-        let py = c_size / 2.0 - y;
-        let r = Math.sqrt( ( px * m_size * px * m_size ) + ( py * m_size * py * m_size ) );
-        amp += Math.sin( - k * r + Math.PI * 2.0 / 360.0 * theta );
-        sx += interval;
-      }
-      let wh = Math.floor( 127 + 126.0 * amp / s_number );
-      if( wh<0 || 255<wh ) console.log( "？？？" );
-      pixelData[ y * c_size * 4 + x * 4 + 0 ] = 0;  //R
-      pixelData[ y * c_size * 4 + x * 4 + 1 ] = wh; //G
-      pixelData[ y * c_size * 4 + x * 4 + 2 ] = wh; //B
-      pixelData[ y * c_size * 4 + x * 4 + 3 ] = 255;    //a
-    }
-  }
-  ctx.putImageData( imageData, 0, 0 );
-
-  if(i%1000 == 0)
-  {
-    console.log( i );
-    console.timeEnd('timer1');
-    console.time('timer1');
-  }
-  theta += 4.5; // 1フレームで位相を4.5°進める
-  requestAnimationFrame( calc0 );
-}
-
-
-window.addEventListener( 'load', function() {
-  calc0();
-});
-\end{lstlisting}
+\subsection{手法2}
+\lstinputlisting[caption=GPU.html] {01-program/02/GPU.html}
+\newpage
+\lstinputlisting[caption=manY-source-gpu.js] {01-program/02/manY-source-gpu.js}
 \newpage
 
-\begin{lstlisting}
-\caption{GPU.html}
-<!DOCTYPE HTML>
-<html lang="ja-JP">
-<head>
-  <meta charset="UTF-8">
-  <title>1次元の音波</title>
-  <script src="many_source_gpu.js"></script>
-</head>
-<body>
-  <canvas class="myCanvas" id="graph0" width="512" height="512"></canvas>
-</body>
-</html>
-
-\end{lstlisting}
+\subsection{手法3}
+\lstinputlisting[caption=Worker.html] {01-program/03/Worker.html}
+\newpage
+\lstinputlisting[caption=main.js] {01-program/03/main.js}
+\newpage
+\lstinputlisting[caption=worker.js] {01-program/03/worker.js}
 \newpage
 
-\begin{lstlisting}
-\caption{many_source.js}
-let theta = 0;
-var i = 0;
-console.time('timer1');
-function calc() {
-  let canvas = document.getElementById( 'graph0' );
-  let gl = canvas.getContext( "webgl" );
-
-  let lambda = 8.6; // 波長は8.6mm （音で言えば40kHz）
-  let c_size = 512; // canvasのサイズ
-  let w_number = 1; // フィールド内の波の数
-
-  i++;
-
-  gl.clearColor( 1.0, 1.0, 1.0, 1.0 );
-  gl.clear(gl.COLOR_BUFFER_BIT);
-
-  let imageData = gl.createBuffer();
-  gl.bindBuffer( gl.ARRAY_BUFFER, imageData );
-
-  // バーテックス(頂点)シェーダー
-  var vSource = [
-    "precision mediump float;",
-    "attribute vec2 vertex;",
-    "attribute float theta_n;",
-    "attribute float distance_n;",
-    "varying float theta;",
-    "varying float distance;",
-    "void main(void) {",
-    "gl_Position = vec4(vertex, 0.0, 1.0);",
-    "theta = theta_n;",
-    "distance = distance_n;",
-    "}"
-  ].join("\n");
-
-  var vShader = gl.createShader(gl.VERTEX_SHADER);
-  gl.shaderSource(vShader, vSource);
-  gl.compileShader(vShader);
-  gl.getShaderParameter(vShader, gl.COMPILE_STATUS);
-
-  // フグメントシェーダー
-  var fSource = [
-    "precision mediump float;",
-    "varying float theta;",
-    "varying float distance;",
-    "void main(void) {",
-    "const float PI = 3.1415926535897932384626433832795;",
-    "const float lambda = 8.6;",
-    "const float c_size = 512.0;",
-    "const float w_number = 16.0;",
-    "const float s_number = 2.0;",
-    "const float interval = 16.0;",
-
-    "const float k = 2.0 * PI / lambda;",
-    "const float m_size = ( lambda * w_number ) / c_size;",
-    "float sx = -interval * s_number/2.0 + interval/2.0;",
-    "float amp = 0.0;",
-    "for( int n=0; n<int(s_number); n++ ) {",
-    "float px = c_size / 2.0 - gl_FragCoord.x - sx;",
-    "float py = c_size / 2.0 - gl_FragCoord.y;",
-    "float r = sqrt( ( px * m_size * px * m_size ) + ( py * m_size * py * m_size ) );",
-    "amp += sin( -k * r + PI * 2.0 / 360.0 * theta );",
-    "sx += interval;",
-    "}",
-    "amp /= 2.0;",
-    "gl_FragColor = vec4( 0, (amp+1.0)/2.0, (amp+1.0)/2.0, 1.0 );",
-    "}"
-  ].join("\n");
-
-  var fShader = gl.createShader(gl.FRAGMENT_SHADER);
-  gl.shaderSource(fShader, fSource);
-  gl.compileShader(fShader);
-  gl.getShaderParameter(fShader, gl.COMPILE_STATUS);
-
-
-  // プログラムオブジェクトの生成
-  var program = gl.createProgram();
-  gl.attachShader(program, vShader);
-  gl.attachShader(program, fShader);
-  gl.linkProgram(program);
-  gl.getProgramParameter(program, gl.LINK_STATUS);
-  gl.useProgram(program);
-
-
-  // シェーダー側の変数をjs側から設定する
-  var vertex = gl.getAttribLocation(program, "vertex");
-  gl.enableVertexAttribArray(vertex);
-  gl.vertexAttribPointer(vertex, 2, gl.FLOAT, false, 0, 0);
-
-  var theta_n = gl.getAttribLocation(program, "theta_n");
-  gl.vertexAttrib1f( theta_n, theta );
-
-  var distance_n = gl.getAttribLocation(program,"distance_n");
-  gl.vertexAttrib1f( distance_n, 1 );
-
-  // 4点の座標をセット
-  var vertices = [
-    -1.0, 1.0,
-    1.0, 1.0,
-    -1.0, -1.0,
-    1.0,-1.0
-  ];
-
-  if(i%1000 == 0)
-  {
-    console.log( i );
-    console.timeEnd('timer1');
-    console.time('timer1');
-  }
-
-  // 描画する
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.DYNAMIC_DRAW);
-  gl.drawArrays(gl.TRIANGLE_STRIP, 0, vertices.length/2);
-
-  theta += 4.5; // 1フレームで位相を4.5°進める
-  setInterval( calc,0 );
-}
-
-
-
-
-
-
-
-
-function calc1() {
-  let canvas = document.getElementById( 'graph1' );
-  let gl = canvas.getContext( "webgl" );
-
-  let lambda = 8.6; // 波長は8.6mm （音で言えば40kHz）
-  let c_size = 512; // canvasのサイズ
-  let w_number = 1; // フィールド内の波の数
-
-  i++;
-
-  gl.clearColor( 1.0, 1.0, 1.0, 1.0 );
-  gl.clear(gl.COLOR_BUFFER_BIT);
-
-  let imageData = gl.createBuffer();
-  gl.bindBuffer( gl.ARRAY_BUFFER, imageData );
-
-  // バーテックス(頂点)シェーダー
-  var vSource = [
-    "precision mediump float;",
-    "attribute vec2 vertex;",
-    "attribute float theta_n;",
-    "attribute float distance_n;",
-    "varying float theta;",
-    "varying float distance;",
-    "void main(void) {",
-    "gl_Position = vec4(vertex, 0.0, 1.0);",
-    "theta = theta_n;",
-    "distance = distance_n;",
-    "}"
-  ].join("\n");
-
-  var vShader = gl.createShader(gl.VERTEX_SHADER);
-  gl.shaderSource(vShader, vSource);
-  gl.compileShader(vShader);
-  gl.getShaderParameter(vShader, gl.COMPILE_STATUS);
-
-  // フグメントシェーダー
-  var fSource = [
-    "precision mediump float;",
-    "varying float theta;",
-    "varying float distance;",
-    "void main(void) {",
-    "const float PI = 3.1415926535897932384626433832795;",
-    "const float lambda = 8.6;",
-    "const float c_size = 512.0;",
-    "const float w_number = 16.0;",
-    "const float s_number = 2.0;",
-    "const float interval = 16.0;",
-
-    "const float k = 2.0 * PI / lambda;",
-    "const float m_size = ( lambda * w_number ) / c_size;",
-    "float sx = -interval * s_number/2.0 + interval/2.0;",
-    "float amp = 0.0;",
-    "for( int n=0; n<int(s_number); n++ ) {",
-    "float px = c_size / 2.0 - gl_FragCoord.x - sx;",
-    "float py = c_size / 2.0 - gl_FragCoord.y;",
-    "float r = sqrt( ( px * m_size * px * m_size ) + ( py * m_size * py * m_size ) );",
-    "amp += sin( -k * r + PI * 2.0 / 360.0 * theta );",
-    "sx += interval;",
-    "}",
-    "amp /= 2.0;",
-    "gl_FragColor = vec4( 0, (amp+1.0)/2.0, (amp+1.0)/2.0, 1.0 );",
-    "}"
-  ].join("\n");
-
-  var fShader = gl.createShader(gl.FRAGMENT_SHADER);
-  gl.shaderSource(fShader, fSource);
-  gl.compileShader(fShader);
-  gl.getShaderParameter(fShader, gl.COMPILE_STATUS);
-
-
-  // プログラムオブジェクトの生成
-  var program = gl.createProgram();
-  gl.attachShader(program, vShader);
-  gl.attachShader(program, fShader);
-  gl.linkProgram(program);
-  gl.getProgramParameter(program, gl.LINK_STATUS);
-  gl.useProgram(program);
-
-
-  // シェーダー側の変数をjs側から設定する
-  var vertex = gl.getAttribLocation(program, "vertex");
-  gl.enableVertexAttribArray(vertex);
-  gl.vertexAttribPointer(vertex, 2, gl.FLOAT, false, 0, 0);
-
-  var theta_n = gl.getAttribLocation(program, "theta_n");
-  gl.vertexAttrib1f( theta_n, theta );
-
-  var distance_n = gl.getAttribLocation(program,"distance_n");
-  gl.vertexAttrib1f( distance_n, 1 );
-
-  // 4点の座標をセット
-  var vertices = [
-    -1.0, 1.0,
-    1.0, 1.0,
-    -1.0, -1.0,
-    1.0,-1.0
-  ];
-
-  if(i%1000 == 0)
-  {
-    console.log( i );
-    console.timeEnd('timer1');
-    console.time('timer1');
-  }
-
-  // 描画する
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.DYNAMIC_DRAW);
-  gl.drawArrays(gl.TRIANGLE_STRIP, 0, vertices.length/2);
-
-  theta += 4.5; // 1フレームで位相を4.5°進める
-  requestAnimationFrame( calc1 );
-}
-
-
-
-window.addEventListener( 'load', function() {
-  calc();
-  calc1()
-});
-
-\end{lstlisting}
+\subsection{手法4}
+\lstinputlisting[caption=offsc.html] {01-program/04/offsc.html}
+\newpage
+\lstinputlisting[caption=main.js] {01-program/04/main.js}
+\newpage
+\lstinputlisting[caption=manY-source.js] {01-program/04/manY-source.js}
+\newpage
+\lstinputlisting[caption=manY-source.js] {01-program/04/manY-source1.js}
 \newpage
 
-\begin{lstlisting}
-\caption{Worker.html}
-<!DOCTYPE HTML>
-<html lang="ja-JP">
-<head>
-  <meta charset="UTF-8">
-  <title>1次元の音波-Worker</title>
-  <style>
-  .myCanvas {
-    margin: 0px;
-    padding: 0px;
-  }
-  #graph1 {
-    margin-left: -512px;
-  }
-  </style>
-  <script src="main.js"></script>
-</head>
-<body>
-  <canvas class="myCanvas" id="graph0" height="512px" width="512px"></canvas>
-  <canvas class="myCanvas" id="graph1" height="512px" width="512px"></canvas>
-</body>
-</html>
-
-\end{lstlisting}
+\subsection{手法4の数値変更}
+\lstinputlisting[caption=offsc.html] {01-program/04/offsc.html}
 \newpage
-
-\begin{lstlisting}
-\caption{main.js}
-class Main {
-  constructor() {
-    let canvas = document.getElementById('graph0');//canvas要素の取得
-    let canvas1 = document.getElementById('graph1');
-    this.theta = 0;
-    this.worker1 = new Work( "worker1", canvas, 0 );
-    this.worker2 = new Work( "worker2", canvas1, 256 );
-
-    //let nl = new nylon();
-    //nl.on( 'worker2', () => {
-    setInterval( () => {this.bar()}, 0 );
-    //})
-  }
-
-  bar() {
-    this.worker1.execute( this.theta );
-    this.worker2.execute( this.theta );
-    this.theta += 4.5;
-  }
-}
-
-class Work {
-  constructor( name, canvas, left ) {
-    this.name = name;
-    this.left = left;
-    this.worker = new Worker('worker.js');
-    this.ctx = canvas.getContext('2d');
-
-    this.image = this.ctx.getImageData( 0, 0, 512, 512 );
-    //this.nl = new nylon();
-
-    this.worker.addEventListener('message',(e) => {
-      let imageData = e.data.image;
-      let count1 = e.data.i;
-
-      if (count1 %1000 == 0){
-        console.log(count1);
-        console.time('time1');
-        console.timeEnd('time1');
-      }
-      this.ctx.clearRect(0,0,512,512);
-      this.ctx.putImageData( imageData, 0, 0 );
-      //this.nl.emit( this.name, null );
-    },false);
-  }
-
-   execute( theta ) {
-      this.worker.postMessage({image:this.image, theta:theta, left:this.left});
-      //console.log(this.name);
-
-  }
-}
-
-window.addEventListener('load',()=>{
-  let hoge = new Main();
-  hoge.bar();
-  console.time('time1');
-});
-
-\end{lstlisting}
+\lstinputlisting[caption=main.js] {01-program/04-2/main.js}
 \newpage
-
-\begin{lstlisting}
-\caption{worker.js}
-
-let i = 0;
-function calc(image, theta,left) {
-  let lambda = 8.6; // 波長は8.6mm （音で言えば40kHz）
-  let c_size = 512; // canvasのサイズ（単位：ピクセル）
-  let w_number = 16; // フィールド内の波の数
-  let s_number = 2; // 音源は2つ　parseIntで文字列を整数型にしている
-  let interval = 16; // 音源間隔（単位：ピクセル）
-
-  let k = 2.0 * Math.PI / lambda;
-  let m_size = ( lambda * w_number ) / c_size;
-
-  i++;
-//console.log(theta);
-  for( let y=0; y<c_size; y++ ) {
-    for( let x=left; x<=left+c_size*0.5; x++ ) {
-      let sx = -interval * s_number/2.0 + interval/2.0;
-      let amp = 0;
-      for( let n=0; n<s_number; n++ ) {
-        let px = c_size / 2.0 - x- sx ;
-        let py = c_size / 2.0 - y;
-        let r = Math.sqrt( ( px * m_size * px * m_size ) + ( py * m_size * py * m_size ) );
-        amp -= Math.sin( - k * r + Math.PI * 2.0 / 360.0 * theta );
-        sx += interval;
-      }
-      let wh = Math.floor( 127 + 126.0 * amp / s_number );
-      if( wh<0 || 255<wh ) console.log( "？？？" );
-      image[ y * c_size * 4 + x * 4 + 0 ] = 0;  //R
-      image[ y * c_size * 4 + x * 4 + 1 ] = wh; //G
-      image[ y * c_size * 4 + x * 4 + 2 ] = wh; //B
-      image[ y * c_size * 4 + x * 4 + 3 ] = 255;    //a
-    }
-  }
-}
-onmessage = (evt)=>{
-  let image = evt.data.image;
-  let theta = evt.data.theta;
-  let left = evt.data.left;
-  //setInterval(() => {calc(image.data, theta);},100);
-  calc(image.data,theta,left);
-  postMessage({image:image, i:i, theta:theta});
-  //calc( image.data, theta );
-
-  //theta += 4.5; // 1フレームで位相を4.5°進める
-
-}
-
-\end{lstlisting}
+\lstinputlisting[caption=manY-source.js] {01-program/04-2/manY-source.js}
 \newpage
-
-\begin{lstlisting}
-\caption{offsc.html}
-<!DOCTYPE HTML>
-<html lang="ja-JP">
-<head>
-  <meta charset="UTF-8">
-  <title>1次元の音波</title>
-</head>
-<body>
-  <canvas class="myCanvas" id="graph0" height="512px" width="512px"></canvas>
-  <canvas class="myCanvas" id="graph1" height="512px" width="512px" style="margin-left:-516px"></canvas>
-
-  <script src="main.js"></script>
-</body>
-</html>
-
-\end{lstlisting}
+\lstinputlisting[caption=manY-source.js] {01-program/04-2/manY-source1.js}
 \newpage
-
-\begin{lstlisting}
-\caption{main.js}
-window.addEventListener('load',()=>{
-
-  //canvas要素を取得する
-  let canvas = document.getElementById('graph0');
-  let canvas1 = document.getElementById('graph1');
-
-  //canvas要素の描画コントロールをoffscreenに委譲する
-  let offscreenCanvas = canvas.transferControlToOffscreen();
-  let offscreenCanvas1 = canvas1.transferControlToOffscreen();
-  //workerを作成し，offscreenCanvasを渡す.
-  let worker = new Worker('many_source.js');
-  worker.postMessage({canvas:offscreenCanvas},[offscreenCanvas]);
-
-  let worker1 = new Worker('many_source1.js');
-  worker1.postMessage({canvas1:offscreenCanvas1},[offscreenCanvas1]);
-});
-
-\end{lstlisting}
+\lstinputlisting[caption=nYlon.js] {01-program/04-2/nYlon.js}
 \newpage
-
-\begin{lstlisting}
-\caption{many_source.js}
-let theta = 0;
-let i = 0;
-onmessage = (evt)=>{
-let offsc = evt.data.canvas;
-let sound = 2;
-let inter = 16;
-let ctx = offsc.getContext('2d');
-console.time('timer');
-//setInterval(() => {calc(offsc, ctx, i, theta);},100);
-function calc( ) {
-let lambda = 8.6; // 波長は8.6mm （音で言えば40kHz）
-let c_size = 512; // canvasのサイズ（単位：ピクセル）
-let w_number = 16; // フィールド内の波の数
-let s_number = sound; // 音源は2つ　parseIntで文字列を整数型にしている
-let interval = inter; // 音源間隔（単位：ピクセル）
-
-ctx.clearRect( 0,0,512,512);
-
-let imageData = ctx.createImageData( 512,512 );
-let pixelData = imageData.data;
-
-let k = 2.0 * Math.PI / lambda;
-let m_size = ( lambda * w_number ) / c_size;
-
-i++;
-
-for( let y=0; y<c_size; y++ ) {
-  for( let x=0; x<=c_size*0.5; x++ ) {
-    let sx = -interval * s_number/2.0 + interval/2.0;
-    let amp = 0;
-    for( let n=0; n<s_number; n++ ) {
-      let px = c_size / 2.0 - x- sx ;
-      let py = c_size / 2.0 - y;
-      let r = Math.sqrt( ( px * m_size * px * m_size ) + ( py * m_size * py * m_size ) );
-      amp -= Math.sin( - k * r + Math.PI * 2.0 / 360.0 * theta );
-      sx += interval;
-    }
-    let wh = Math.floor( 127 + 126.0 * amp / s_number );
-    if( wh<0 || 255<wh ) console.log( "？？？" );
-    pixelData[ y * c_size * 4 + x * 4 + 0 ] = 0;  //R
-    pixelData[ y * c_size * 4 + x * 4 + 1 ] = wh; //G
-    pixelData[ y * c_size * 4 + x * 4 + 2 ] = wh; //B
-    pixelData[ y * c_size * 4 + x * 4 + 3 ] = 255;    //a
-  }
-}
-ctx.putImageData( imageData, 0, 0 );
-if(i%1000 == 0)
-{
-  console.log( i );
-  console.timeEnd('timer');
-  console.time('timer');
-}
-
-theta += 4.5; // 1フレームで位相を4.5°進める
-  //requestAnimationFrame(calc);
-  setInterval( calc,0);
-}
-//requestAnimationFrame(calc);
-setInterval( calc,0);
-};
-
-\end{lstlisting}
-\newpage
-
-\begin{lstlisting}
-\caption{many_source1.js}
-let theta = 0;
-let i = 0;
-onmessage = (evt)=>{
-let offsc = evt.data.canvas1;
-let sound = 2;
-let inter = 16;
-let ctx = offsc.getContext('2d');
-console.time('timer2');
-//setInterval(() => {calc(offsc, ctx, i, theta);},100);
-function calc( ) {
-let lambda = 8.6; // 波長は8.6mm （音で言えば40kHz）
-let c_size = 512; // canvasのサイズ（単位：ピクセル）
-let w_number = 16; // フィールド内の波の数
-let s_number = sound; // 音源は2つ　parseIntで文字列を整数型にしている
-let interval = inter; // 音源間隔（単位：ピクセル）
-
-ctx.clearRect( 0,0,512,512);
-
-let imageData = ctx.createImageData( 512,512 );
-let pixelData = imageData.data;
-
-let k = 2.0 * Math.PI / lambda;
-let m_size = ( lambda * w_number ) / c_size;
-
-i++;
-
-for( let y=0; y<c_size; y++ ) {
-  for( let x=512*0.5; x<=c_size; x++ ) {
-    let sx = -interval * s_number/2.0 + interval/2.0;
-    let amp = 0;
-    for( let n=0; n<s_number; n++ ) {
-      let px = c_size / 2.0 - x- sx ;
-      let py = c_size / 2.0 - y;
-      let r = Math.sqrt( ( px * m_size * px * m_size ) + ( py * m_size * py * m_size ) );
-      amp -= Math.sin( - k * r + Math.PI * 2.0 / 360.0 * theta );
-      sx += interval;
-    }
-    let wh = Math.floor( 127 + 126.0 * amp / s_number );
-    if( wh<0 || 255<wh ) console.log( "？？？" );
-    pixelData[ y * c_size * 4 + x * 4 + 0 ] = 0;  //R
-    pixelData[ y * c_size * 4 + x * 4 + 1 ] = wh; //G
-    pixelData[ y * c_size * 4 + x * 4 + 2 ] = wh; //B
-    pixelData[ y * c_size * 4 + x * 4 + 3 ] = 255;    //a
-  }
-}
-ctx.putImageData( imageData, 0, 0 );
-if(i%1000 == 0)
-{
-  console.log( i );
-  console.timeEnd('timer2');
-  console.time('timer2');
-}
-
-theta += 4.5; // 1フレームで位相を4.5°進める
-  //requestAnimationFrame(calc);
-  setInterval( calc,0);
-}
-//requestAnimationFrame(calc);
-setInterval( calc,0);
-};
-
-\end{lstlisting}
-\newpage
-
-\begin{lstlisting}
-\caption{offsc.html}
-\end{lstlisting}
-\newpage
-
-\begin{lstlisting}
-\caption{main.js}
-
-class Main {
-  constructor() {
-    this.i = 0; //soundの数
-    this.j = 0; //間の大きさ
-
-    this.canvas = document.getElementById('graph0');  //canvasの要素を取得
-    this.canvas1 = document.getElementById('graph1');
-    this.offscreenCanvas = this.canvas.transferControlToOffscreen();//canvas要素の描画コントロールをoffscreenに委譲する
-    this.offscreenCanvas1 = this.canvas1.transferControlToOffscreen();
-    this.worker = new Worker('many_source.js'); //workerを作成
-    this.worker1 = new Worker('many_source1.js');
-    //setInterval(() => {main(canvas,canvas1,i,j,offscreenCanvas,offscreenCanvas1);},30);
-
-    this.worker.postMessage( { canvas:this.offscreenCanvas, sound:2, interval:16 }, [this.offscreenCanvas] );
-    this.worker1.postMessage( { canvas:this.offscreenCanvas1, sound:2, interval:16 }, [this.offscreenCanvas1] );
-
-    var nl = new nylon();
-    nl.on( 'root', ( key, params ) => {
-      this.worker.postMessage( { sound: params.root } );
-      this.worker1.postMessage( { sound: params.root } );
-    });
-    nl.on( 'kyori', ( key, params ) => {
-      this.worker.postMessage( { interval: params.kyori } );
-      this.worker1.postMessage( { interval: params.kyori } );
-    })
-  }
-
-
-}
-
-var guisetup = () => {
-  var nl = new nylon();
-  document.querySelector('#root').addEventListener('change', (evt) => {
-    console.log(evt.target.value);
-    nl.emit( "root", { "root": evt.target.value});
-    document.querySelector('#output1').value = evt.target.value;
-  });
-  document.querySelector('#kyori').addEventListener('change', (evt) => {
-    console.log(evt);
-    nl.emit( "kyori", { "kyori": evt.target.value});
-    document.querySelector('#output2').value = evt.target.value;
-  });
-}
-window.addEventListener("load",()=>{
-  guisetup();
-  x = new Main();
-});
-
-\end{lstlisting}
-\newpage
-
-\begin{lstlisting}
-\caption{many_source.js}
-class many_source {
-  constructor() {
-    this.theta = 0;
-    this.i = 0;
-    this.moving = false;
-    self.addEventListener('message', (evt) => {
-      if( evt.data.canvas != null ) {
-        this.offsc = evt.data.canvas;
-        this.ctx = this.offsc.getContext('2d');
-        console.time('timer');
-      }
-      if( evt.data.sound != null )  this.sound = evt.data.sound;
-      if( evt.data.interval != null )  this.inter = evt.data.interval;
-      if( this.moving == false ) {
-        this.moving = true;
-        requestAnimationFrame(this.calc.bind(this));
-      }
-    });
-  }
-  calc( ) {
-    let lambda = 8.6; // 波長は8.6mm （音で言えば40kHz）
-    let c_size = 512; // canvasのサイズ（単位：ピクセル）
-    let w_number = 16; // フィールド内の波の数
-    let s_number = this.sound; // 音源は2つ　parseIntで文字列を整数型にしている
-    let interval = this.inter; // 音源間隔（単位：ピクセル）
-
-    this.ctx.clearRect( 0,0,512,512);
-
-    let imageData = this.ctx.createImageData( 512,512 );
-    let pixelData = imageData.data;
-
-    let k = 2.0 * Math.PI / lambda;
-    let m_size = ( lambda * w_number ) / c_size;
-
-    this.i++;
-
-    for( let y=0; y<c_size; y++ ) {
-      for( let x=0; x<=c_size*0.5; x++ ) {
-        let sx = -interval * s_number/2.0 + interval/2.0;
-        //console.log(sx);
-        let amp = 0;
-        for( let n=0; n<s_number; n++ ) {
-          let px = c_size / 2.0 - x- sx ;
-          let py = c_size / 2.0 - y;
-          let r = Math.sqrt( ( px * m_size * px * m_size ) + ( py * m_size * py * m_size ) );
-          amp -= Math.sin( - k * r + Math.PI * 2.0 / 360.0 * this.theta );
-          sx += interval;
-        }
-        let wh = Math.floor( 127 + 126.0 * amp / s_number );
-        if( wh<0 || 255<wh ) console.log( "？？？" );
-        pixelData[ y * c_size * 4 + x * 4 + 0 ] = 0;  //R
-        pixelData[ y * c_size * 4 + x * 4 + 1 ] = wh; //G
-        pixelData[ y * c_size * 4 + x * 4 + 2 ] = wh; //B
-        pixelData[ y * c_size * 4 + x * 4 + 3 ] = 255;    //a
-      }
-    }
-    this.ctx.putImageData( imageData, 0, 0 );
-
-    this.theta += 4.5; // 1フレームで位相を4.5°進める
-    //console.log(this.theta);
-    requestAnimationFrame(this.calc.bind(this));
-  }
-}
-
-new many_source();
-
-\end{lstlisting}
-\newpage
-
-\begin{lstlisting}
-\caption{many_source.js}
-class many_source1 {
-  constructor() {
-    this.theta = 0;
-    this.i = 0;
-    this.moving = false;
-    self.addEventListener('message', (evt) => {
-      if( evt.data.canvas != null ) {
-        this.offsc = evt.data.canvas;
-        this.ctx = this.offsc.getContext('2d');
-        console.time('timer1');
-      }
-      if( evt.data.sound != null )  this.sound = evt.data.sound;
-      if( evt.data.interval != null )  this.inter = evt.data.interval;
-      if( this.moving == false ) {
-        this.moving = true;
-        requestAnimationFrame(this.calc.bind(this));
-      }
-    });
-  }
-  calc( ) {
-    let lambda = 8.6; // 波長は8.6mm （音で言えば40kHz）
-    let c_size = 512; // canvasのサイズ（単位：ピクセル）
-    let w_number = 16; // フィールド内の波の数
-    let s_number = this.sound; // 音源は2つ　parseIntで文字列を整数型にしている
-    let interval = this.inter; // 音源間隔（単位：ピクセル）
-
-    this.ctx.clearRect( 0,0,512,512);
-
-    let imageData = this.ctx.createImageData( 512,512 );
-    let pixelData = imageData.data;
-
-    let k = 2.0 * Math.PI / lambda;
-    let m_size = ( lambda * w_number ) / c_size;
-
-    this.i++;
-
-    for( let y=0; y<c_size; y++ ) {
-      for( let x=c_size*0.5; x<=c_size; x++ ) {
-        let sx = -interval * s_number/2.0 + interval/2.0;
-        //console.log(sx);
-        let amp = 0;
-        for( let n=0; n<s_number; n++ ) {
-          let px = c_size / 2.0 - x- sx ;
-          let py = c_size / 2.0 - y;
-          let r = Math.sqrt( ( px * m_size * px * m_size ) + ( py * m_size * py * m_size ) );
-          amp -= Math.sin( - k * r + Math.PI * 2.0 / 360.0 * this.theta );
-          sx += interval;
-        }
-        let wh = Math.floor( 127 + 126.0 * amp / s_number );
-        if( wh<0 || 255<wh ) console.log( "？？？" );
-        pixelData[ y * c_size * 4 + x * 4 + 0 ] = 0;  //R
-        pixelData[ y * c_size * 4 + x * 4 + 1 ] = wh; //G
-        pixelData[ y * c_size * 4 + x * 4 + 2 ] = wh; //B
-        pixelData[ y * c_size * 4 + x * 4 + 3 ] = 255;    //a
-      }
-    }
-    this.ctx.putImageData( imageData, 0, 0 );
-
-    this.theta += 4.5; // 1フレームで位相を4.5°進める
-    //console.log(this.theta);
-    requestAnimationFrame(this.calc.bind(this));
-  }
-}
-
-new many_source1();
-
-\end{lstlisting}
-\newpage
-
-
-
 \end{document}

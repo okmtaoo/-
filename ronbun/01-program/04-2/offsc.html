@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="ja-JP">
+<head>
+  <meta charset="UTF-8">
+  <title>1次元の音波-offscreen数値</title>
+  <script src="main.js"></script>
+  <script src="nylon.js"></script>
+</head>
+<body>
+  <canvas class="myCanvas" id="graph0" height="512px" width="512px"></canvas>
+  <canvas class="myCanvas" id="graph1" height="512px" width="512px" style="margin-left:-516px"></canvas>
+  <form><br>
+    音源の数<br>
+    <input id="root" type="range" value="2" min="0" max="16">
+    <output id="output1">2</output><br>
+
+    音源の間隔(pixel)<br>
+    <input  id="kyori" type="range" value="16" min="0" max="25">
+    <output id="output2">16</output><br>
+
+    <!-- <input type="reset" value="reset"> -->
+  </form>
+
+</body>
+</html>
