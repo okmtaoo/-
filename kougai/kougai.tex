@@ -11,31 +11,26 @@
 \maketitle
 \section{はじめに}
 シミュレータ教材は不可視現象を可視化する教材であり，イメージが困難な事象の理解を促す手法として有用である．
-e-Learningの普及に伴いシミュレータ教材の活用の場が増加し，様々な分野に対応したシミュレータ教材と効率的な開発手法が必要とされている．
+e-Learningの普及に伴いシミュレータ教材の活用の場が増加し，様々な分野に対応したシミュレータ教材が求められ，処理速度だけでなく，効率的な開発手法が必要とされている．
 
-本研究室では昨年，高負荷なシミュレータ教材にプログラマブルシェーダを利用しGPUに適用させ，CPUとの処理速度を比較する研究が行われた\cite{book}．その結果，教材の処理速度は大幅に向上したが，ソースコードの変更箇所が多く，複雑なため容易に実装できないという問題点が浮上した．
+本研究室では昨年，高負荷なシミュレータ教材にプログラマブルシェーダを利用し，GPUで動作された，CPUとの処理速度を比較する研究が行われた\cite{book}．
+その結果，教材の処理速度は大幅に向上したが，ソースコードの変更箇所が多く，複雑なため，容易に実装できないという問題点が浮上した．
+
 この問題点はWebWorkerによるマルチスレッド化と，サブスレッドから直接描画を行うOffscreenCanvasを利用することで緩和できると考られる．
 
 そこで本研究では，OffscreenCanvasを利用したシミュレータ教材の開発を行い，ソフトウェアの生産性と処理速度の観点から有用性の検証を行うことを目的とする．
 
 \section{比較に用いるシミュレータ教材}
 \begin{figure}[b]
-\vspace{-6mm}
-\begin{minipage}{0.49\hsize}
-  \centering
-   \includegraphics[width=35mm , angle=-90]{sim.pdf}
-   \vspace{-10pt}
-  \caption{開発したシミュレータ}
-  \label{fig:sim}
- \end{minipage}
+\vspace{-5mm}
  \begin{minipage}{0.49\hsize}
   \centering
-   \includegraphics[width=20mm]{cpu_chart.pdf}
+  \vspace{-10mm}
+   \includegraphics[width=23mm]{cpu_chart.pdf}
    \vspace{10pt}
   \caption{手法1のフローチャート}
   \label{fig:cpu}
- \end{minipage}
- 
+ \end{minipage} 
  \begin{minipage}{0.5\hsize}
  \centering
   \vspace{5pt}	
@@ -45,14 +40,23 @@ e-Learningの普及に伴いシミュレータ教材の活用の場が増加し�
   \caption{手法3のフローチャート}
   \label{fig:worker}
  \end{minipage}
+ 
  \begin{minipage}{0.5\hsize}
  \centering
- \vspace{-30pt}	
+ \vspace{-25pt}	
   \includegraphics[width=45mm  ]{offsc_chart2.pdf}
   \abovecaptionskip=30pt
   \belowcaptionskip=-10pt
   \caption{手法4のフローチャート}
   \label{fig:offsc}
+ \end{minipage}
+ \begin{minipage}{0.49\hsize}
+ \vspace{-14mm}
+  \centering
+   \includegraphics[width=35mm , angle=-90]{sim.pdf}
+   \vspace{15pt}
+  \caption{開発したシミュレータ}
+  \label{fig:sim}
  \end{minipage}
 \end{figure}
 OffscreenCanvasの有用性の検証を行うにあたり，昨年度の卒業研究で使われた複数の音源から発せられる音場シミュレータを参照した．
@@ -101,20 +105,20 @@ Canvas要素を縦に2分割し，それぞれ別スレッドで計算・描画�
 \begin{table} [htbp]
 \vspace{6pt}
 \centering
-\caption{各種法の高速化率}
+\caption{各種法の処理時間と時間比}
 \vspace{4pt}
 	\begin{tabular} {| c | c | c | } \hline
 	手法　& 処理時間  (s)  & 時間比 \\ \hline
-	手法1 & 206.6 & 1 \\ \hline 
-	手法2 & 128.6 & 0.62 \\ \hline
-	手法3 & 164.3 & 0.8 \\ \hline
-	手法4 & 98.0 & 0.47 \\ \hline
+	1 & 206.6 & 1 \\ \hline 
+	2 & 128.6 & 0.62 \\ \hline
+	3 & 164.3 & 0.8 \\ \hline
+	4 & 98.0 & 0.47 \\ \hline
 	\end{tabular} 
 	\label{tab:tab2}
 \end{table}
 
 \section{おわりに}
-本研究ではシミュレータ開発におけるOffscreenCanvasの有用性を生産性と処理速度の観点から検証した．処理３，処理４共に処理速度が向上し，WebWorkerより容易に実装が可能なことがわかった．今後はOffscreenCanvasを利用したシミュレータ教材の開発が増加することが予測される．
+本研究ではシミュレータ開発におけるOffscreenCanvasの有用性を生産性と処理速度の観点から検証した．手法３，手法４共に処理速度が向上し，サブスレッドで演算だけ行うことより容易に実装が可能であることがわかった．今後はOffscreenCanvasを利用したシミュレータ教材の開発が増加することが予測される．
 \begin{thebibliography}{99}
 
 	\bibitem{book}中嶋　大貴:``GPU利用によるシミュレータ教材の演算速度'',平成29年度卒業論文,(2018)

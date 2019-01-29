@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017) (preloaded format=platex 2018.4.10)  28 JAN 2019 23:08
+This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017) (preloaded format=platex 2018.4.10)  29 JAN 2019 18:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -973,140 +973,136 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ]
 LaTeX Font Info:    Font shape `JT1/hmc/bx/n' will be
-(Font)              scaled to size 11.09619pt on input line 84.
+(Font)              scaled to size 11.09619pt on input line 85.
 LaTeX Font Info:    Font shape `JY1/hmc/bx/n' will be
-(Font)              scaled to size 11.09619pt on input line 84.
+(Font)              scaled to size 11.09619pt on input line 85.
 LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <12> not available
-(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 84.
+(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 85.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 84.
+(Font)              scaled to size 12.0pt on input line 85.
  [2]
 [3] [4]
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 148.
+(Font)              scaled to size 11.09619pt on input line 149.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 148.
+(Font)              scaled to size 11.09619pt on input line 149.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 148.
+(Font)              scaled to size 12.0pt on input line 149.
  [5] [6] [7]
-LaTeX Font Info:    Try loading font information for T1+ntxtt on input line 253
+LaTeX Font Info:    Try loading font information for T1+ntxtt on input line 254
 .
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 10.0pt on input line 253.
+(Font)              scaled to size 10.0pt on input line 254.
  [8] [9]
 [10]
 File: CPU.pdf Graphic file (type pdf)
  <CPU.pdf>
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 312.
+(Font)              scaled to size 8.32214pt on input line 314.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 312.
+(Font)              scaled to size 8.32214pt on input line 314.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.0pt on input line 312.
- [11]
+(Font)              scaled to size 9.0pt on input line 314.
+ [11] [12]
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 346.
+(Font)              scaled to size 13.31541pt on input line 348.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 346.
+(Font)              scaled to size 13.31541pt on input line 348.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 14.4pt on input line 346.
- [12]
-File: GPU.pdf Graphic file (type pdf)
- <GPU.pdf>
+(Font)              scaled to size 14.4pt on input line 348.
 LaTeX Font Info:    Font shape `JT1/utfj/m/2' will be
-(Font)              scaled to size 9.24683pt on input line 380.
+(Font)              scaled to size 9.24683pt on input line 360.
 LaTeX Font Info:    Font shape `JY1/utfj/m/2' will be
-(Font)              scaled to size 9.24683pt on input line 380.
- [13] [14] [15] [16]
+(Font)              scaled to size 9.24683pt on input line 360.
+File: GPU.pdf Graphic file (type pdf)
+ <GPU.pdf> [13] [14] [15] [16]
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 446.
+(Font)              scaled to size 6.47278pt on input line 450.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 446.
+(Font)              scaled to size 6.47278pt on input line 450.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 446.
+(Font)              scaled to size 7.0pt on input line 450.
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 446.
+(Font)              scaled to size 8.32214pt on input line 450.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 446.
+(Font)              scaled to size 8.32214pt on input line 450.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 9.0pt on input line 446.
+(Font)              scaled to size 9.0pt on input line 450.
 File: DOM.pdf Graphic file (type pdf)
  <DOM.pdf> [17] [18]
-Overfull \hbox (45.4002pt too wide) in paragraph at lines 518--526
+[19]
+Overfull \hbox (45.4002pt too wide) in paragraph at lines 521--529
  [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[19] [20]
+[20]
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 7.39746pt on input line 568.
+(Font)              scaled to size 7.39746pt on input line 571.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 7.39746pt on input line 568.
+(Font)              scaled to size 7.39746pt on input line 571.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 8.0pt on input line 568.
+(Font)              scaled to size 8.0pt on input line 571.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 7.39746pt on input line 569.
+(Font)              scaled to size 7.39746pt on input line 572.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 7.39746pt on input line 569.
+(Font)              scaled to size 7.39746pt on input line 572.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 569.
- [21] [22]
+(Font)              scaled to size 8.0pt on input line 572.
+ [21] [22] [23]
 File: sim.pdf Graphic file (type pdf)
  <sim.pdf>
 File: kYouzai.pdf Graphic file (type pdf)
  <kYouzai.pdf>
-Overfull \hbox (1.49992pt too wide) in paragraph at lines 648--662
+Overfull \hbox (1.49992pt too wide) in paragraph at lines 651--665
 [][]$[]$[] []$[]$[] 
  []
 
-[23] [24]
+[24] [25]
 LaTeX Font Info:    Font shape `JT1/utfj/m/f' will be
-(Font)              scaled to size 9.24683pt on input line 724.
+(Font)              scaled to size 9.24683pt on input line 727.
 LaTeX Font Info:    Font shape `JY1/utfj/m/f' will be
-(Font)              scaled to size 9.24683pt on input line 724.
- [25]
+(Font)              scaled to size 9.24683pt on input line 727.
+ [26]
 File: henka.pdf Graphic file (type pdf)
- <henka.pdf> [26]
+ <henka.pdf> [27]
 File: cpu_chart.pdf Graphic file (type pdf)
  <cpu_chart.pdf>
 File: worker_chart2.pdf Graphic file (type pdf)
- <worker_chart2.pdf> [27]
+ <worker_chart2.pdf> [28]
 File: offsc_chart2.pdf Graphic file (type pdf)
 
-<offsc_chart2.pdf> [28] [29] [30]
+<offsc_chart2.pdf> [29] [30] [31]
 LaTeX Font Info:    Font shape `JT1/utfj/m/0' will be
-(Font)              scaled to size 9.24683pt on input line 829.
+(Font)              scaled to size 9.24683pt on input line 832.
 LaTeX Font Info:    Font shape `JY1/utfj/m/0' will be
-(Font)              scaled to size 9.24683pt on input line 829.
+(Font)              scaled to size 9.24683pt on input line 832.
 
-Underfull \hbox (badness 10000) in paragraph at lines 829--830
+Underfull \hbox (badness 10000) in paragraph at lines 832--833
 []\T1/ntxtlf/m/n/10 ecma IN-TER-NA-TIONAL:"EECMAScript \JY1/utfj/m/0/10 嘩 \T1/
 ntxtlf/m/n/10 2018 Lan-guage Spec-i-fi-ca-tion[],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 829--830
+Underfull \hbox (badness 10000) in paragraph at lines 832--833
 \T1/ntxtlf/m/n/10 urlhttps://www.ecma-international.org/ecma-262/9.0/indeX.html
 (\JY1/hmc/m/n/10 参照\T1/ntxtlf/m/n/10 :2019 \JY1/hmc/m/n/10 年 \T1/ntxtlf/m/n/
 10 1 \JY1/hmc/m/n/10 月
  []
 
-[31] (./01-program/01/CPU.html) [32] (./01-program/01/manY-source.js [33])
-[34] (./01-program/02/GPU.html) [35] (./01-program/02/manY-source-gpu.js
-[36] [37] [38] [39] [40]) [41] (./01-program/03/Worker.html) [42]
-(./01-program/03/main.js [43]) [44] (./01-program/03/worker.js [45]) [46]
-(./01-program/04/offsc.html) [47] (./01-program/04/main.js) [48]
-(./01-program/04/manY-source.js [49]) [50] (./01-program/04/manY-source1.js
-[51]) [52] (./01-program/04/offsc.html) [53] (./01-program/04-2/main.js
-[54]) [55] (./01-program/04-2/manY-source.js [56]) [57]
-(./01-program/04-2/manY-source1.js [58]) [59] (./01-program/04-2/nYlon.js
-[60] [61] [62]) [63] (./茫^^96�^^96^^87.aux)
+[32] (./01-program/01/CPU.html) [33] (./01-program/01/manY-source.js [34])
+[35] (./01-program/02/GPU.html) [36] (./01-program/02/manY-source-gpu.js
+[37] [38] [39] [40] [41]) [42] (./01-program/03/Worker.html) [43]
+(./01-program/03/main.js [44]) [45] (./01-program/03/worker.js [46]) [47]
+(./01-program/04/offsc.html) [48] (./01-program/04/main.js) [49]
+(./01-program/04/manY-source.js [50]) [51] (./01-program/04/manY-source1.js
+[52]) [53] (./01-program/04/offsc.html) [54] (./01-program/04-2/main.js
+[55]) [56] (./01-program/04-2/manY-source.js [57]) [58]
+(./01-program/04-2/manY-source1.js [59]) [60] (./01-program/04-2/nYlon.js
+[61] [62] [63]) [64] (./茫^^96�^^96^^87.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -1120,4 +1116,4 @@ Here is how much of TeX's memory you used:
  934 hyphenation exceptions out of 8191
  43i,9n,70p,1672b,1614s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on 茫^^96�^^96^^87.dvi (69 pages, 248124 bytes).
+Output written on 茫^^96�^^96^^87.dvi (70 pages, 247632 bytes).
